@@ -1,7 +1,7 @@
 # Modified Kuppuswamy Scale for Socioeconomic Status (2026 Update)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.YOUR_ZENODO_ID.svg)](https://doi.org/10.5281/zenodo.YOUR_ZENODO_ID)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24143455.svg)](https://doi.org/10.5281/zenodo.YOUR_ZENODO_ID)
 
 An open-source, web-based calculator software implementing the 2026 revision of the **Modified Kuppuswamy Socioeconomic Status (SES) Scale** for Indian households and epidemiological research.
 
