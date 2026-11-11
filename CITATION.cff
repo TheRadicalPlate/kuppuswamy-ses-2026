@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this calculator in your research, surveys, or clinical audits, please cite it as below."
+authors:
+  - family-names: "Alphonso"
+    given-names: "Rachael"
+title: "Modified Kuppuswamy Scale for Socioeconomic Status (2026 Update)"
+version: "1.0.0"
+date-released: "2026-04-15"
+license: "MIT"
+url: "https://github.com/YOUR_GITHUB_USERNAME/kuppuswamy-ses-2026"
+doi: "10.5281/zenodo.YOUR_ZENODO_ID"
+references:
+  - type: article
+    authors:
+      - family-names: "Yadav"
+        given-names: "Ankit"
+      - family-names: "Mondal"
+        given-names: "Anubhav"
+      - family-names: "Debnath"
+        given-names: "Aninda"
+    title: "Revamping socioeconomic assessment: 2026 updates to the B. G. Prasad and modified Kuppuswamy scales"
+    journal: "International Journal of Community Medicine and Public Health"
+    volume: 13
+    issue: 4
+    start: 2050
+    end: 2054
+    year: 2026
+    doi: "10.18203/2394-6040.ijcmph20260759"

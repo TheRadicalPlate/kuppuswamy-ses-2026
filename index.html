@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modified Kuppuswamy Scale SES Calculator (2026 Update)</title>
+  <meta name="description" content="Online Socioeconomic Status (SES) Calculator implementing the 2026 Modified Kuppuswamy Scale update by Yadav, Mondal, and Debnath. Open-source under MIT License.">
+  <meta name="author" content="Rachael Alphonso">
+
+  <!-- GoatCounter Analytics -->
+  <!-- Replace YOUR-GOATCOUNTER-CODE with your actual dashboard code (e.g., https://kuppuswamy-calc.goatcounter.com/count) -->
+  <script data-goatcounter="https://YOUR-GOATCOUNTER-CODE.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-hover: #172554;
+      --accent: #0284c7;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #cbd5e1;
+      --text: #0f172a;
+      --muted: #64748b;
+      --success-bg: #ecfdf5;
+      --success-border: #10b981;
+      --success-text: #065f46;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .badges a img {
+      height: 20px;
+      vertical-align: middle;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .helper-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    input[type="number"], select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      background-color: #ffffff;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="number"]:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .toggle-link {
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: underline;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 6px;
+    }
+
+    .btn-calc {
+      width: 100%;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 6px;
+    }
+
+    .btn-calc:hover {
+      background: var(--primary-hover);
+    }
+
+    .result-container {
+      display: none;
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 24px;
+    }
+
+    .result-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .result-class {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--success-text);
+      margin: 4px 0 12px;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      border-top: 1px dashed #a7f3d0;
+      padding-top: 12px;
+    }
+
+    .score-item span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .score-item strong {
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .citation-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 12px 16px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 0.82rem;
+      color: #1e293b;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin-bottom: 8px;
+    }
+
+    .btn-copy {
+      background: #e2e8f0;
+      border: 1px solid #cbd5e1;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 18px;
+      transition: background 0.2s;
+    }
+
+    .btn-copy:hover {
+      background: #cbd5e1;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 28px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header & Badges -->
+  <header>
+    <h1>Modified Kuppuswamy Scale SES Calculator</h1>
+    <p>2026 Standardized Update using CPI-IW (Base Year 2016 = 100)</p>
+    <div class="badges">
+      <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">
+        <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License">
+      </a>
+      <a href="https://doi.org/10.5281/zenodo.YOUR_ZENODO_ID" target="_blank" rel="noopener">
+        <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.YOUR_ZENODO_ID.svg" alt="Zenodo DOI">
+      </a>
+      <a href="https://github.com/YOUR_GITHUB_USERNAME/kuppuswamy-ses-2026" target="_blank" rel="noopener">
+        <img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github" alt="GitHub Repository">
+      </a>
+    </div>
+  </header>
+
+  <!-- Interactive Input Form -->
+  <main class="card">
+    <h2 class="card-title">Family Socioeconomic Evaluation</h2>
+
+    <!-- Income Input Group: Exact Value Mode -->
+    <div class="form-group" id="group-income-numeric">
+      <label for="input-income">1. Monthly Family Income (in INR)</label>
+      <span class="helper-text">Enter exact monthly household income in ₹ (automatically scored according to 2026 brackets):</span>
+      <input type="number" id="input-income" placeholder="e.g. 45000" min="0" step="100">
+      <span class="toggle-link" onclick="toggleIncomeMode(true)">Switch to bracket dropdown list</span>
+    </div>
+
+    <!-- Income Input Group: Dropdown Mode -->
+    <div class="form-group" id="group-income-dropdown" style="display: none;">
+      <label for="select-income">1. Monthly Family Income Bracket (2026 Update)</label>
+      <span class="helper-text">Select the corresponding 2026 CPI-IW household income range:</span>
+      <select id="select-income">
+        <option value="">-- Select Income Range --</option>
+        <option value="12">≥ ₹66,007 (Score: 12)</option>
+        <option value="10">₹33,004 – ₹66,006 (Score: 10)</option>
+        <option value="6">₹24,753 – ₹33,003 (Score: 6)</option>
+        <option value="4">₹16,502 – ₹24,752 (Score: 4)</option>
+        <option value="3">₹9,901 – ₹16,501 (Score: 3)</option>
+        <option value="2">₹3,301 – ₹9,900 (Score: 2)</option>
+        <option value="1">≤ ₹3,300 (Score: 1)</option>
+      </select>
+      <span class="toggle-link" onclick="toggleIncomeMode(false)">Switch to exact amount entry</span>
+    </div>
+
+    <!-- Education Level Group -->
+    <div class="form-group">
+      <label for="select-education">2. Education of Head of Family</label>
+      <span class="helper-text">Highest educational attainment completed by the head of household:</span>
+      <select id="select-education">
+        <option value="">-- Select Educational Attainment --</option>
+        <option value="7">Postgraduate and above (Score: 7)</option>
+        <option value="6">Graduate (Score: 6)</option>
+        <option value="5">Higher secondary (Score: 5)</option>
+        <option value="4">Middle school (Score: 4)</option>
+        <option value="3">Primary school (Score: 3)</option>
+        <option value="1">Illiterate (Score: 1)</option>
+      </select>
+    </div>
+
+    <!-- Occupation Group -->
+    <div class="form-group">
+      <label for="select-occupation">3. Occupation of Head of Family</label>
+      <span class="helper-text">Primary occupation category of the head of household:</span>
+      <select id="select-occupation">
+        <option value="">-- Select Occupational Category --</option>
+        <option value="10">Legislators, senior officials, managers (Score: 10)</option>
+        <option value="9">Professionals (Score: 9)</option>
+        <option value="8">Technicians / associate professionals (Score: 8)</option>
+        <option value="7">Clerk (Score: 7)</option>
+        <option value="6">Skilled worker, shop and market sales workers (Score: 6)</option>
+        <option value="5">Skilled agricultural and fishery workers (Score: 5)</option>
+        <option value="4">Craft and related trade workers (Score: 4)</option>
+        <option value="3">Plant and machine operators and assemblers (Score: 3)</option>
+        <option value="2">Elementary occupation (Score: 2)</option>
+        <option value="1">Unemployed (Score: 1)</option>
+      </select>
+    </div>
+
+    <button type="button" class="btn-calc" onclick="calculateKuppuswamy()">Calculate SES Classification</button>
+
+    <!-- Calculation Results Container -->
+    <div class="result-container" id="result-box">
+      <div class="result-label">Assessed Socioeconomic Status</div>
+      <div class="result-class" id="res-class">Upper Middle Class (II)</div>
+      <div class="score-grid">
+        <div class="score-item">
+          <span>Income Score</span>
+          <strong id="res-inc">-</strong>
+        </div>
+        <div class="score-item">
+          <span>Education Score</span>
+          <strong id="res-edu">-</strong>
+        </div>
+        <div class="score-item">
+          <span>Occupation Score</span>
+          <strong id="res-occ">-</strong>
+        </div>
+        <div class="score-item">
+          <span>Total Kuppuswamy Score</span>
+          <strong id="res-total">-</strong>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Citations, Attributions & Scientific References -->
+  <section class="card">
+    <h2 class="card-title">Citing This Software & Methodological Reference</h2>
+    <p style="font-size: 0.9rem; margin-bottom: 16px;">
+      If you utilize this calculation tool in your clinical audits, academic papers, or public health surveys, please acknowledge both the tool and the published 2026 revision:
+    </p>
+
+    <!-- Software Citation -->
+    <h3 style="font-size: 0.95rem; margin-bottom: 6px;">1. Cite This Software Calculator:</h3>
+    <div class="citation-box" id="cite-software">Alphonso, R. (2026). Modified Kuppuswamy Scale for Socioeconomic Status (2026 Update) [Computer software]. GitHub. https://doi.org/10.5281/zenodo.YOUR_ZENODO_ID</div>
+    <button class="btn-copy" onclick="copyCitation('cite-software', this)">Copy Software Citation (APA)</button>
+
+    <!-- Methodological Reference -->
+    <h3 style="font-size: 0.95rem; margin-bottom: 6px;">2. Methodological Scale Reference:</h3>
+    <div class="citation-box" id="cite-paper">Yadav, A., Mondal, A., &amp; Debnath, A. (2026). Revamping socioeconomic assessment: 2026 updates to the B. G. Prasad and modified Kuppuswamy scales. International Journal of Community Medicine and Public Health, 13(4), 2050–2054. https://doi.org/10.18203/2394-6040.ijcmph20260759</div>
+    <button class="btn-copy" onclick="copyCitation('cite-paper', this)">Copy Paper Reference</button>
+
+    <!-- BibTeX Entry -->
+    <h3 style="font-size: 0.95rem; margin-bottom: 6px;">3. BibTeX Citation:</h3>
+    <div class="citation-box" id="cite-bibtex">@article{yadav2026revamping,
+  author  = {Yadav, Ankit and Mondal, Anubhav and Debnath, Aninda},
+  title   = {Revamping socioeconomic assessment: 2026 updates to the B. G. Prasad and modified Kuppuswamy scales},
+  journal = {International Journal of Community Medicine and Public Health},
+  volume  = {13},
+  number  = {4},
+  pages   = {2050--2054},
+  year    = {2026},
+  doi     = {10.18203/2394-6040.ijcmph20260759}
+}
+
+@software{alphonso2026kuppuswamy,
+  author  = {Alphonso, Rachael},
+  title   = {Modified Kuppuswamy Scale for Socioeconomic Status (2026 Update)},
+  year    = {2026},
+  url     = {https://github.com/YOUR_GITHUB_USERNAME/kuppuswamy-ses-2026},
+  doi     = {10.5281/zenodo.YOUR_ZENODO_ID}
+}</div>
+    <button class="btn-copy" onclick="copyCitation('cite-bibtex', this)">Copy BibTeX</button>
+  </section>
+
+  <footer>
+    <p>Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a>. Free to use with proper credit and citation.</p>
+    <p style="margin-top: 4px;">Classification thresholds verified against Yadav et al. (2026), <em>Int J Community Med Public Health</em>, 13(4):2050–2054.</p>
+  </footer>
+
+</div>
+
+<script>
+  let isDropdownMode = false;
+
+  function toggleIncomeMode(useDropdown) {
+    isDropdownMode = useDropdown;
+    document.getElementById('group-income-numeric').style.display = useDropdown ? 'none' : 'block';
+    document.getElementById('group-income-dropdown').style.display = useDropdown ? 'block' : 'none';
+  }
+
+  function resolveIncomeScore() {
+    if (isDropdownMode) {
+      const selected = document.getElementById('select-income').value;
+      return selected ? parseInt(selected, 10) : null;
+    } else {
+      const rawInput = document.getElementById('input-income').value;
+      if (rawInput === "" || isNaN(rawInput)) return null;
+      const income = parseFloat(rawInput);
+      if (income >= 66007) return 12;
+      if (income >= 33004) return 10;
+      if (income >= 24753) return 6;
+      if (income >= 16502) return 4;
+      if (income >= 9901) return 3;
+      if (income >= 3301) return 2;
+      return 1;
+    }
+  }
+
+  function calculateKuppuswamy() {
+    const incScore = resolveIncomeScore();
+    const eduVal = document.getElementById('select-education').value;
+    const occVal = document.getElementById('select-occupation').value;
+
+    if (incScore === null || !eduVal || !occVal) {
+      alert("Please provide values for all three fields: Income, Education, and Occupation.");
+      return;
+    }
+
+    const eduScore = parseInt(eduVal, 10);
+    const occScore = parseInt(occVal, 10);
+    const totalScore = incScore + eduScore + occScore;
+
+    let sesClass = "";
+    if (totalScore >= 26) {
+      sesClass = "Upper Class (I)";
+    } else if (totalScore >= 16) {
+      sesClass = "Upper Middle Class (II)";
+    } else if (totalScore >= 11) {
+      sesClass = "Lower Middle Class (III)";
+    } else if (totalScore >= 5) {
+      sesClass = "Upper Lower Class (IV)";
+    } else {
+      sesClass = "Lower Class (V)";
+    }
+
+    // Populate Results UI
+    document.getElementById('res-class').textContent = sesClass;
+    document.getElementById('res-inc').textContent = incScore;
+    document.getElementById('res-edu').textContent = eduScore;
+    document.getElementById('res-occ').textContent = occScore;
+    document.getElementById('res-total').textContent = `${totalScore} / 29`;
+    document.getElementById('result-box').style.display = 'block';
+
+    // GoatCounter Analytics: Count Custom Calculation Event
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({
+        path: 'calculate-kuppuswamy-ses',
+        title: 'Calculator Invoked',
+        event: true
+      });
+    }
+  }
+
+  function copyCitation(targetId, btn) {
+    const text = document.getElementById(targetId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const prevLabel = btn.innerText;
+      btn.innerText = "✓ Copied to Clipboard";
+      setTimeout(() => {
+        btn.innerText = prevLabel;
+      }, 2000);
+    }).catch(() => {
+      alert("Copy failed. Please select and copy the text manually.");
+    });
+  }
+</script>
+
+</body>
+</html>
