@@ -8,24 +8,23 @@
   <meta name="author" content="Rachael Alphonso">
 
   <!-- GoatCounter Analytics -->
-  <script data-goatcounter="https://kuppuswamy-ses-2026.goatcounter.com/count"
+  <!-- Replace YOUR-GOATCOUNTER-CODE with your actual dashboard code (e.g., https://kuppuswamy-calc.goatcounter.com/count) -->
+  <script data-goatcounter="https://YOUR-GOATCOUNTER-CODE.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 
   <style>
     :root {
-      --primary: #4338ca;         /* Vibrant Indigo */
-      --primary-hover: #3730a3;
-      --primary-light: #e0e7ff;
-      --accent-purple: #7c3aed;   /* Electric Violet */
-      --accent-teal: #0d9488;     /* Teal */
-      --accent-amber: #d97706;    /* Amber */
-      --accent-emerald: #059669;  /* Emerald */
+      --primary: #1e3a8a;
+      --primary-hover: #172554;
+      --accent: #0284c7;
       --bg: #f8fafc;
       --card-bg: #ffffff;
-      --border: #e2e8f0;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      --border: #cbd5e1;
+      --text: #0f172a;
+      --muted: #64748b;
+      --success-bg: #ecfdf5;
+      --success-border: #10b981;
+      --success-text: #065f46;
     }
 
     * {
@@ -36,151 +35,101 @@
     }
 
     body {
-      background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 40%, #fdf4ff 100%);
-      color: var(--text-main);
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      padding: 36px 16px;
-      min-height: 100vh;
+      padding: 32px 16px;
     }
 
     .container {
-      max-width: 960px;
+      max-width: 860px;
       margin: 0 auto;
     }
 
-    /* Header styling with colorful gradient */
     header {
       text-align: center;
-      margin-bottom: 32px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: linear-gradient(135deg, #e0e7ff 0%, #ede9fe 100%);
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 9999px;
-      border: 1px solid #c7d2fe;
-      margin-bottom: 12px;
+      margin-bottom: 28px;
     }
 
     header h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 50%, #7c3aed 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 1.75rem;
+      color: var(--primary);
       margin-bottom: 8px;
     }
 
     header p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 700px;
-      margin: 0 auto;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
     .badges {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 12px;
-      margin-top: 16px;
+      gap: 10px;
+      margin-top: 14px;
       flex-wrap: wrap;
     }
 
     .badges a img {
-      height: 22px;
-      border-radius: 4px;
+      height: 20px;
       vertical-align: middle;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
     }
 
-    /* Card standard */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 30px;
-      margin-bottom: 28px;
-      box-shadow: 0 10px 25px -5px rgba(67, 56, 202, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
     }
 
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 12px;
-    }
-
-    .card-header h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #1e1b4b;
-    }
-
-    .section-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #e0e7ff;
+    .card-title {
+      font-size: 1.15rem;
       color: var(--primary);
-      font-size: 1.1rem;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
     }
 
     .form-group {
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: block;
       font-weight: 600;
       font-size: 0.95rem;
       margin-bottom: 4px;
-      color: #1e293b;
     }
 
     .helper-text {
-      font-size: 0.82rem;
-      color: var(--text-muted);
+      font-size: 0.8rem;
+      color: var(--muted);
       margin-bottom: 8px;
       display: block;
     }
 
     input[type="number"], select {
       width: 100%;
-      padding: 12px 14px;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 10px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
       font-size: 0.95rem;
       background-color: #ffffff;
-      color: var(--text-main);
-      transition: all 0.2s ease;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     input[type="number"]:focus, select:focus {
       outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
     }
 
     .toggle-link {
       font-size: 0.82rem;
-      color: var(--primary);
-      font-weight: 600;
+      color: var(--accent);
       text-decoration: underline;
       cursor: pointer;
       display: inline-block;
@@ -189,275 +138,104 @@
 
     .btn-calc {
       width: 100%;
-      background: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);
+      background: var(--primary);
       color: #ffffff;
       border: none;
-      padding: 14px 20px;
-      border-radius: 10px;
-      font-size: 1.05rem;
-      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(67, 56, 202, 0.25);
-      transition: all 0.2s ease;
-      margin-top: 8px;
+      transition: background 0.2s;
+      margin-top: 6px;
     }
 
     .btn-calc:hover {
-      background: linear-gradient(135deg, #3730a3 0%, #4f46e5 100%);
-      box-shadow: 0 6px 16px rgba(67, 56, 202, 0.35);
-      transform: translateY(-1px);
+      background: var(--primary-hover);
     }
 
-    /* Result Box with dynamic rich styling */
     .result-container {
       display: none;
-      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
-      border: 2px solid #86efac;
-      border-radius: 14px;
-      padding: 24px;
-      margin-top: 26px;
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.1);
-      animation: fadeIn 0.3s ease-in;
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 24px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .result-badge {
-      display: inline-block;
-      font-size: 0.75rem;
+    .result-label {
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #065f46;
-      font-weight: 800;
-      background: #d1fae5;
-      padding: 3px 10px;
-      border-radius: 6px;
-      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      font-weight: 700;
     }
 
     .result-class {
-      font-size: 1.65rem;
-      font-weight: 800;
-      color: #065f46;
-      margin-bottom: 16px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--success-text);
+      margin: 4px 0 12px;
     }
 
     .score-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
       gap: 12px;
-      border-top: 1.5px dashed #6ee7b7;
-      padding-top: 16px;
-    }
-
-    .score-item {
-      background: rgba(255, 255, 255, 0.85);
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: 1px solid #d1fae5;
+      border-top: 1px dashed #a7f3d0;
+      padding-top: 12px;
     }
 
     .score-item span {
       display: block;
       font-size: 0.75rem;
-      color: #475569;
-      font-weight: 600;
+      color: var(--muted);
     }
 
     .score-item strong {
-      font-size: 1.25rem;
-      color: #1e1b4b;
+      font-size: 1.1rem;
+      color: var(--text);
     }
 
-    /* =========================================
-       ACADEMIC CITATIONS SECTION (MATCHING SCREENSHOT)
-       ========================================= */
-    .citations-header {
-      margin-bottom: 24px;
-    }
-
-    .citation-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #4f46e5;
-      margin-bottom: 6px;
-    }
-
-    .citations-header h2 {
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 4px;
-    }
-
-    .citations-header p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .citation-card {
+    .citation-box {
       background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 22px;
-      margin-bottom: 20px;
-      transition: all 0.2s ease;
-    }
-
-    .citation-card:hover {
-      border-color: #cbd5e1;
-      background: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    }
-
-    .citation-card-top {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-
-    .badge-number {
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 800;
-    }
-
-    .badge-number-1 { background: #ede9fe; color: #6d28d9; }
-    .badge-number-2 { background: #dcfce7; color: #15803d; }
-    .badge-number-3 { background: #fef3c7; color: #b45309; }
-
-    .citation-title {
-      font-size: 0.86rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 12px 16px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 0.82rem;
       color: #1e293b;
-    }
-
-    .pill-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 2px 10px;
-      border-radius: 9999px;
-    }
-
-    .pill-purple { background: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; }
-    .pill-green  { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
-    .pill-amber  { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
-
-    .citation-body-flex {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .citation-text-box {
-      flex: 1;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 14px 16px;
-      font-family: var(--font-mono);
-      font-size: 0.84rem;
-      color: #334155;
-      line-height: 1.5;
       white-space: pre-wrap;
       word-break: break-word;
+      margin-bottom: 8px;
     }
 
-    .citation-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-width: 155px;
-    }
-
-    .btn-action-copy {
-      background: #0f172a;
-      color: #ffffff;
-      border: 1px solid #0f172a;
-      border-radius: 8px;
-      padding: 10px 16px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.15s ease;
-      white-space: nowrap;
-    }
-
-    .btn-action-copy:hover {
-      background: #1e293b;
-    }
-
-    .btn-action-bibtex {
-      background: #ffffff;
-      color: #0f172a;
+    .btn-copy {
+      background: #e2e8f0;
       border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 10px 16px;
-      font-size: 0.84rem;
-      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.15s ease;
-      white-space: nowrap;
+      margin-bottom: 18px;
+      transition: background 0.2s;
     }
 
-    .btn-action-bibtex:hover {
-      background: #f8fafc;
-      border-color: #94a3b8;
-    }
-
-    @media (max-width: 720px) {
-      .citation-body-flex {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .citation-actions {
-        flex-direction: row;
-        width: 100%;
-      }
-      .btn-action-copy, .btn-action-bibtex {
-        flex: 1;
-      }
+    .btn-copy:hover {
+      background: #cbd5e1;
     }
 
     footer {
       text-align: center;
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      margin-top: 36px;
-      padding-top: 20px;
-      border-top: 1px solid #e2e8f0;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 28px;
     }
 
     footer a {
-      color: var(--primary);
+      color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
     }
 
     footer a:hover {
@@ -469,52 +247,39 @@
 
 <div class="container">
 
-  <!-- Header Section with exact DOI 10.5281/zenodo.24143455 badge -->
+  <!-- Header & Badges -->
   <header>
-    <div class="hero-badge">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      CPI-IW 2026 Revision
-    </div>
     <h1>Modified Kuppuswamy Scale SES Calculator</h1>
-    <p>Automated Socioeconomic Status Scoring for Clinical &amp; Epidemiological Studies (January 2026 CPI-IW = 148.6)</p>
-    
+    <p>2026 Standardized Update using CPI-IW (Base Year 2016 = 100)</p>
     <div class="badges">
       <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/badge/License-MIT-4338ca.svg" alt="MIT License">
+        <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License">
       </a>
-      <!-- Exact Live Zenodo DOI Badge -->
-      <a href="https://doi.org/10.5281/zenodo.24143455" target="_blank" rel="noopener">
-        <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.24143455.svg" alt="Zenodo DOI: 10.5281/zenodo.24143455">
+      <a href="https://doi.org/10.5281/zenodo.YOUR_ZENODO_ID" target="_blank" rel="noopener">
+        <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.YOUR_ZENODO_ID.svg" alt="Zenodo DOI">
       </a>
-      <a href="https://github.com/theradicalplate/kuppuswamy-ses-2026" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/badge/GitHub-Repository-0f172a?logo=github" alt="GitHub Repository">
+      <a href="https://github.com/YOUR_GITHUB_USERNAME/kuppuswamy-ses-2026" target="_blank" rel="noopener">
+        <img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github" alt="GitHub Repository">
       </a>
     </div>
   </header>
 
-  <!-- Interactive Form Card -->
+  <!-- Interactive Input Form -->
   <main class="card">
-    <div class="card-header">
-      <div class="section-icon">📊</div>
-      <h2>Household Socioeconomic Assessment</h2>
-    </div>
+    <h2 class="card-title">Family Socioeconomic Evaluation</h2>
 
-    <!-- Income Input Group: Exact Mode -->
+    <!-- Income Input Group: Exact Value Mode -->
     <div class="form-group" id="group-income-numeric">
-      <label for="input-income">
-        <span>1. Monthly Family Income (in ₹)</span>
-      </label>
-      <span class="helper-text">Enter exact monthly family income in INR (auto-mapped to 2026 inflation brackets):</span>
+      <label for="input-income">1. Monthly Family Income (in INR)</label>
+      <span class="helper-text">Enter exact monthly household income in ₹ (automatically scored according to 2026 brackets):</span>
       <input type="number" id="input-income" placeholder="e.g. 45000" min="0" step="100">
-      <span class="toggle-link" onclick="toggleIncomeMode(true)">⇄ Select from 2026 income range dropdown instead</span>
+      <span class="toggle-link" onclick="toggleIncomeMode(true)">Switch to bracket dropdown list</span>
     </div>
 
     <!-- Income Input Group: Dropdown Mode -->
     <div class="form-group" id="group-income-dropdown" style="display: none;">
-      <label for="select-income">
-        <span>1. Monthly Family Income Bracket (2026 Update)</span>
-      </label>
-      <span class="helper-text">Choose the household income bracket matching January 2026 CPI-IW index:</span>
+      <label for="select-income">1. Monthly Family Income Bracket (2026 Update)</label>
+      <span class="helper-text">Select the corresponding 2026 CPI-IW household income range:</span>
       <select id="select-income">
         <option value="">-- Select Income Range --</option>
         <option value="12">≥ ₹66,007 (Score: 12)</option>
@@ -525,15 +290,13 @@
         <option value="2">₹3,301 – ₹9,900 (Score: 2)</option>
         <option value="1">≤ ₹3,300 (Score: 1)</option>
       </select>
-      <span class="toggle-link" onclick="toggleIncomeMode(false)">⇄ Enter exact numeric amount in ₹ instead</span>
+      <span class="toggle-link" onclick="toggleIncomeMode(false)">Switch to exact amount entry</span>
     </div>
 
-    <!-- Education Group -->
+    <!-- Education Level Group -->
     <div class="form-group">
-      <label for="select-education">
-        <span>2. Education of Head of Family</span>
-      </label>
-      <span class="helper-text">Highest educational qualification completed by the family head:</span>
+      <label for="select-education">2. Education of Head of Family</label>
+      <span class="helper-text">Highest educational attainment completed by the head of household:</span>
       <select id="select-education">
         <option value="">-- Select Educational Attainment --</option>
         <option value="7">Postgraduate and above (Score: 7)</option>
@@ -547,10 +310,8 @@
 
     <!-- Occupation Group -->
     <div class="form-group">
-      <label for="select-occupation">
-        <span>3. Occupation of Head of Family</span>
-      </label>
-      <span class="helper-text">Primary occupation category of the family head:</span>
+      <label for="select-occupation">3. Occupation of Head of Family</label>
+      <span class="helper-text">Primary occupation category of the head of household:</span>
       <select id="select-occupation">
         <option value="">-- Select Occupational Category --</option>
         <option value="10">Legislators, senior officials, managers (Score: 10)</option>
@@ -566,11 +327,11 @@
       </select>
     </div>
 
-    <button type="button" class="btn-calc" onclick="calculateKuppuswamy()">Calculate Socioeconomic Status</button>
+    <button type="button" class="btn-calc" onclick="calculateKuppuswamy()">Calculate SES Classification</button>
 
     <!-- Calculation Results Container -->
     <div class="result-container" id="result-box">
-      <span class="result-badge">Calculated Status</span>
+      <div class="result-label">Assessed Socioeconomic Status</div>
       <div class="result-class" id="res-class">Upper Middle Class (II)</div>
       <div class="score-grid">
         <div class="score-item">
@@ -593,104 +354,26 @@
     </div>
   </main>
 
-  <!-- =========================================
-       ACADEMIC CITATIONS SECTION (EXACT DESIGN MATCH)
-       ========================================= -->
+  <!-- Citations, Attributions & Scientific References -->
   <section class="card">
-    <div class="citations-header">
-      <div class="citation-kicker">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H9c-1.1 0-2 .9-2 2v1H5c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 17H5V7h14v12zm-2-7h-4v4h4v-4z"/></svg>
-        ACADEMIC CITATIONS
-      </div>
-      <h2>How to Cite This Tool &amp; Background Research</h2>
-      <p>Please cite the software tool and the underlying research papers in your study or publication.</p>
-    </div>
+    <h2 class="card-title">Citing This Software & Methodological Reference</h2>
+    <p style="font-size: 0.9rem; margin-bottom: 16px;">
+      If you utilize this calculation tool in your clinical audits, academic papers, or public health surveys, please acknowledge both the tool and the published 2026 revision:
+    </p>
 
-    <!-- 1. Citing This Calculator (Software Tool) -->
-    <div class="citation-card">
-      <div class="citation-card-top">
-        <span class="badge-number badge-number-1">1</span>
-        <span class="citation-title">CITING THIS CALCULATOR (SOFTWARE TOOL)</span>
-        <span class="pill-tag pill-purple">MIT License</span>
-      </div>
-      <div class="citation-body-flex">
-        <div class="citation-text-box" id="cite-text-1">Alphonso, R. (2026). Modified Kuppuswamy Scale for Socioeconomic Status (2026 Update) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.24143455</div>
-        <div class="citation-actions">
-          <button class="btn-action-copy" onclick="copyCitation('cite-text-1', this)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            Copy Citation
-          </button>
-          <button class="btn-action-bibtex" onclick="copyBibtex('bib-1', this)">
-            &lt;/&gt; Copy BibTeX
-          </button>
-        </div>
-      </div>
-    </div>
+    <!-- Software Citation -->
+    <h3 style="font-size: 0.95rem; margin-bottom: 6px;">1. Cite This Software Calculator:</h3>
+    <div class="citation-box" id="cite-software">Alphonso, R. (2026). Modified Kuppuswamy Scale for Socioeconomic Status (2026 Update) [Computer software]. GitHub. https://doi.org/10.5281/zenodo.YOUR_ZENODO_ID</div>
+    <button class="btn-copy" onclick="copyCitation('cite-software', this)">Copy Software Citation (APA)</button>
 
-    <!-- 2. Citing the 2026 Update Paper -->
-    <div class="citation-card">
-      <div class="citation-card-top">
-        <span class="badge-number badge-number-2">2</span>
-        <span class="citation-title">CITING THE 2026 UPDATE PAPER (METHODOLOGY &amp; NORMS)</span>
-        <span class="pill-tag pill-green">Background Paper</span>
-      </div>
-      <div class="citation-body-flex">
-        <div class="citation-text-box" id="cite-text-2">Yadav, A., Mondal, A., &amp; Debnath, A. (2026). Revamping socioeconomic assessment: 2026 updates to the B. G. Prasad and modified Kuppuswamy scales. International Journal of Community Medicine and Public Health, 13(4), 2050–2054. https://doi.org/10.18203/2394-6040.ijcmph20260759</div>
-        <div class="citation-actions">
-          <button class="btn-action-copy" onclick="copyCitation('cite-text-2', this)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            Copy Citation
-          </button>
-          <button class="btn-action-bibtex" onclick="copyBibtex('bib-2', this)">
-            &lt;/&gt; Copy BibTeX
-          </button>
-        </div>
-      </div>
-    </div>
+    <!-- Methodological Reference -->
+    <h3 style="font-size: 0.95rem; margin-bottom: 6px;">2. Methodological Scale Reference:</h3>
+    <div class="citation-box" id="cite-paper">Yadav, A., Mondal, A., &amp; Debnath, A. (2026). Revamping socioeconomic assessment: 2026 updates to the B. G. Prasad and modified Kuppuswamy scales. International Journal of Community Medicine and Public Health, 13(4), 2050–2054. https://doi.org/10.18203/2394-6040.ijcmph20260759</div>
+    <button class="btn-copy" onclick="copyCitation('cite-paper', this)">Copy Paper Reference</button>
 
-    <!-- 3. Citing the Original Foundation Scale -->
-    <div class="citation-card">
-      <div class="citation-card-top">
-        <span class="badge-number badge-number-3">3</span>
-        <span class="citation-title">CITING THE ORIGINAL FOUNDATION SCALE</span>
-        <span class="pill-tag pill-amber">Original Scale</span>
-      </div>
-      <div class="citation-body-flex">
-        <div class="citation-text-box" id="cite-text-3">Kuppuswamy, B. (1976). Manual of Socio-economic Status (Urban). Manasayan, Delhi.</div>
-        <div class="citation-actions">
-          <button class="btn-action-copy" onclick="copyCitation('cite-text-3', this)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            Copy Citation
-          </button>
-          <button class="btn-action-bibtex" onclick="copyBibtex('bib-3', this)">
-            &lt;/&gt; Copy BibTeX
-          </button>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>Open source under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a>. Free for research, medical, and community audits with proper attribution.</p>
-    <p style="margin-top: 4px;">Standardized against CPI-IW data compiled by Labour Bureau, Ministry of Labour &amp; Employment, Government of India.</p>
-  </footer>
-
-</div>
-
-<!-- Hidden BibTeX sources for clipboard copy (cleanly hidden, not displayed) -->
-<div style="display: none;" aria-hidden="true">
-  <pre id="bib-1">@software{alphonso2026kuppuswamy,
-  author    = {Alphonso, Rachael},
-  title     = {Modified Kuppuswamy Scale for Socioeconomic Status (2026 Update)},
-  year      = {2026},
-  publisher = {Zenodo},
-  doi       = {10.5281/zenodo.24143455},
-  url       = {https://doi.org/10.5281/zenodo.24143455}
-}</pre>
-
-  <pre id="bib-2">@article{yadav2026revamping,
+    <!-- BibTeX Entry -->
+    <h3 style="font-size: 0.95rem; margin-bottom: 6px;">3. BibTeX Citation:</h3>
+    <div class="citation-box" id="cite-bibtex">@article{yadav2026revamping,
   author  = {Yadav, Ankit and Mondal, Anubhav and Debnath, Aninda},
   title   = {Revamping socioeconomic assessment: 2026 updates to the B. G. Prasad and modified Kuppuswamy scales},
   journal = {International Journal of Community Medicine and Public Health},
@@ -699,15 +382,23 @@
   pages   = {2050--2054},
   year    = {2026},
   doi     = {10.18203/2394-6040.ijcmph20260759}
-}</pre>
+}
 
-  <pre id="bib-3">@book{kuppuswamy1976manual,
-  author    = {Kuppuswamy, B.},
-  title     = {Manual of Socio-economic Status (Urban)},
-  publisher = {Manasayan},
-  address   = {Delhi},
-  year      = {1976}
-}</pre>
+@software{alphonso2026kuppuswamy,
+  author  = {Alphonso, Rachael},
+  title   = {Modified Kuppuswamy Scale for Socioeconomic Status (2026 Update)},
+  year    = {2026},
+  url     = {https://github.com/YOUR_GITHUB_USERNAME/kuppuswamy-ses-2026},
+  doi     = {10.5281/zenodo.YOUR_ZENODO_ID}
+}</div>
+    <button class="btn-copy" onclick="copyCitation('cite-bibtex', this)">Copy BibTeX</button>
+  </section>
+
+  <footer>
+    <p>Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a>. Free to use with proper credit and citation.</p>
+    <p style="margin-top: 4px;">Classification thresholds verified against Yadav et al. (2026), <em>Int J Community Med Public Health</em>, 13(4):2050–2054.</p>
+  </footer>
+
 </div>
 
 <script>
@@ -785,36 +476,13 @@
   function copyCitation(targetId, btn) {
     const text = document.getElementById(targetId).innerText;
     navigator.clipboard.writeText(text).then(() => {
-      const prevHtml = btn.innerHTML;
-      btn.innerHTML = "✓ Copied!";
-      btn.style.background = "#059669";
-      btn.style.borderColor = "#059669";
+      const prevLabel = btn.innerText;
+      btn.innerText = "✓ Copied to Clipboard";
       setTimeout(() => {
-        btn.innerHTML = prevHtml;
-        btn.style.background = "#0f172a";
-        btn.style.borderColor = "#0f172a";
+        btn.innerText = prevLabel;
       }, 2000);
     }).catch(() => {
-      alert("Copy failed. Please copy text manually.");
-    });
-  }
-
-  function copyBibtex(bibId, btn) {
-    const text = document.getElementById(bibId).innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      const prevHtml = btn.innerHTML;
-      btn.innerHTML = "✓ Copied BibTeX!";
-      btn.style.background = "#059669";
-      btn.style.color = "#ffffff";
-      btn.style.borderColor = "#059669";
-      setTimeout(() => {
-        btn.innerHTML = prevHtml;
-        btn.style.background = "#ffffff";
-        btn.style.color = "#0f172a";
-        btn.style.borderColor = "#cbd5e1";
-      }, 2000);
-    }).catch(() => {
-      alert("Copy failed. Please copy text manually.");
+      alert("Copy failed. Please select and copy the text manually.");
     });
   }
 </script>
