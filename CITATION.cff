@@ -8,7 +8,7 @@ version: "1.0.0"
 date-released: "2026-04-15"
 license: "MIT"
 url: "https://github.com/YOUR_GITHUB_USERNAME/kuppuswamy-ses-2026"
-doi: "10.5281/zenodo.YOUR_ZENODO_ID"
+doi: "10.5281/zenodo.24143455"
 references:
   - type: article
     authors:
