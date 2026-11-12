@@ -54,6 +54,15 @@
       margin-bottom: 32px;
     }
 
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -67,7 +76,40 @@
       padding: 5px 14px;
       border-radius: 9999px;
       border: 1px solid #c7d2fe;
-      margin-bottom: 12px;
+    }
+
+    .lang-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .lang-box label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+      margin: 0;
+    }
+
+    .lang-box select {
+      border: none;
+      background: transparent;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      padding: 2px 4px;
+      cursor: pointer;
+      width: auto;
+    }
+
+    .lang-box select:focus {
+      outline: none;
+      box-shadow: none;
     }
 
     header h1 {
@@ -143,7 +185,7 @@
       margin-bottom: 22px;
     }
 
-    label {
+    .form-group > label {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -160,7 +202,7 @@
       display: block;
     }
 
-    input[type="number"], select {
+    input[type="number"], .form-group select {
       width: 100%;
       padding: 12px 14px;
       border: 1.5px solid #cbd5e1;
@@ -171,7 +213,7 @@
       transition: all 0.2s ease;
     }
 
-    input[type="number"]:focus, select:focus {
+    input[type="number"]:focus, .form-group select:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
@@ -273,7 +315,7 @@
     }
 
     /* =========================================
-       ACADEMIC CITATIONS SECTION (MATCHING SCREENSHOT)
+       ACADEMIC CITATIONS SECTION
        ========================================= */
     .citations-header {
       margin-bottom: 24px;
@@ -431,7 +473,136 @@
       border-color: #94a3b8;
     }
 
+    /* =========================================
+       SOFTWARE ATTRIBUTION & DATA PRIVACY CARDS
+       ========================================= */
+    .attribution-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .attr-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .attr-title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #1e1b4b;
+    }
+
+    .attr-title-group svg {
+      color: #4f46e5;
+    }
+
+    .attr-license-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    .attr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .attr-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+
+    .attr-box-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .attr-box-value {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .attr-box-value a {
+      color: #4f46e5;
+      text-decoration: underline;
+    }
+
+    .attr-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      padding-top: 12px;
+      border-top: 1px solid #f1f5f9;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .attr-footer-row a {
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .attr-footer-row a:hover {
+      text-decoration: underline;
+    }
+
+    /* Privacy Banner */
+    .privacy-banner {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: 14px;
+      padding: 18px 24px;
+      margin-bottom: 28px;
+      font-size: 0.92rem;
+      color: #166534;
+      line-height: 1.5;
+    }
+
+    .privacy-banner strong {
+      color: #14532d;
+      font-weight: 800;
+    }
+
+    .footer-meta {
+      text-align: center;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-top: 24px;
+      line-height: 1.8;
+    }
+
     @media (max-width: 720px) {
+      .top-bar {
+        justify-content: center;
+      }
       .citation-body-flex {
         flex-direction: column;
         align-items: stretch;
@@ -444,45 +615,40 @@
         flex: 1;
       }
     }
-
-    footer {
-      text-align: center;
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      margin-top: 36px;
-      padding-top: 20px;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    footer a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
 
 <div class="container">
 
-  <!-- Header Section with exact DOI 10.5281/zenodo.24143455 badge -->
+  <!-- Header Section -->
   <header>
-    <div class="hero-badge">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      CPI-IW 2026 Revision
+    <div class="top-bar">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span data-i18n="hero_badge">CPI-IW 2026 Revision</span>
+      </div>
+
+      <!-- Language Selector -->
+      <div class="lang-box">
+        <label for="lang-switcher">🌐 Language:</label>
+        <select id="lang-switcher" onchange="setLanguage(this.value)">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="ta">தமிழ் (Tamil)</option>
+          <option value="mr">मराठी (Marathi)</option>
+          <option value="bn">বাংলা (Bengali)</option>
+        </select>
+      </div>
     </div>
-    <h1>Modified Kuppuswamy Scale SES Calculator</h1>
-    <p>Automated Socioeconomic Status Scoring for Clinical &amp; Epidemiological Studies (January 2026 CPI-IW = 148.6)</p>
+
+    <h1 data-i18n="main_title">Modified Kuppuswamy Scale SES Calculator</h1>
+    <p data-i18n="main_subtitle">Automated Socioeconomic Status Scoring for Clinical &amp; Epidemiological Studies (January 2026 CPI-IW = 148.6)</p>
     
     <div class="badges">
       <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">
         <img src="https://img.shields.io/badge/License-MIT-4338ca.svg" alt="MIT License">
       </a>
-      <!-- Exact Live Zenodo DOI Badge -->
       <a href="https://doi.org/10.5281/zenodo.24143455" target="_blank" rel="noopener">
         <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.24143455.svg" alt="Zenodo DOI: 10.5281/zenodo.24143455">
       </a>
@@ -496,97 +662,97 @@
   <main class="card">
     <div class="card-header">
       <div class="section-icon">📊</div>
-      <h2>Household Socioeconomic Assessment</h2>
+      <h2 data-i18n="form_heading">Household Socioeconomic Assessment</h2>
     </div>
 
     <!-- Income Input Group: Exact Mode -->
     <div class="form-group" id="group-income-numeric">
       <label for="input-income">
-        <span>1. Monthly Family Income (in ₹)</span>
+        <span data-i18n="inc_num_label">1. Monthly Family Income (in ₹)</span>
       </label>
-      <span class="helper-text">Enter exact monthly family income in INR (auto-mapped to 2026 inflation brackets):</span>
+      <span class="helper-text" data-i18n="inc_num_help">Enter exact monthly family income in INR (auto-mapped to 2026 inflation brackets):</span>
       <input type="number" id="input-income" placeholder="e.g. 45000" min="0" step="100">
-      <span class="toggle-link" onclick="toggleIncomeMode(true)">⇄ Select from 2026 income range dropdown instead</span>
+      <span class="toggle-link" onclick="toggleIncomeMode(true)" data-i18n="toggle_to_drop">⇄ Select from 2026 income range dropdown instead</span>
     </div>
 
     <!-- Income Input Group: Dropdown Mode -->
     <div class="form-group" id="group-income-dropdown" style="display: none;">
       <label for="select-income">
-        <span>1. Monthly Family Income Bracket (2026 Update)</span>
+        <span data-i18n="inc_drop_label">1. Monthly Family Income Bracket (2026 Update)</span>
       </label>
-      <span class="helper-text">Choose the household income bracket matching January 2026 CPI-IW index:</span>
+      <span class="helper-text" data-i18n="inc_drop_help">Choose the household income bracket matching January 2026 CPI-IW index:</span>
       <select id="select-income">
-        <option value="">-- Select Income Range --</option>
-        <option value="12">≥ ₹66,007 (Score: 12)</option>
-        <option value="10">₹33,004 – ₹66,006 (Score: 10)</option>
-        <option value="6">₹24,753 – ₹33,003 (Score: 6)</option>
-        <option value="4">₹16,502 – ₹24,752 (Score: 4)</option>
-        <option value="3">₹9,901 – ₹16,501 (Score: 3)</option>
-        <option value="2">₹3,301 – ₹9,900 (Score: 2)</option>
-        <option value="1">≤ ₹3,300 (Score: 1)</option>
+        <option value="" data-i18n="inc_opt_default">-- Select Income Range --</option>
+        <option value="12" data-i18n="inc_opt_12">≥ ₹66,007 (Score: 12)</option>
+        <option value="10" data-i18n="inc_opt_10">₹33,004 – ₹66,006 (Score: 10)</option>
+        <option value="6" data-i18n="inc_opt_6">₹24,753 – ₹33,003 (Score: 6)</option>
+        <option value="4" data-i18n="inc_opt_4">₹16,502 – ₹24,752 (Score: 4)</option>
+        <option value="3" data-i18n="inc_opt_3">₹9,901 – ₹16,501 (Score: 3)</option>
+        <option value="2" data-i18n="inc_opt_2">₹3,301 – ₹9,900 (Score: 2)</option>
+        <option value="1" data-i18n="inc_opt_1">≤ ₹3,300 (Score: 1)</option>
       </select>
-      <span class="toggle-link" onclick="toggleIncomeMode(false)">⇄ Enter exact numeric amount in ₹ instead</span>
+      <span class="toggle-link" onclick="toggleIncomeMode(false)" data-i18n="toggle_to_num">⇄ Enter exact numeric amount in ₹ instead</span>
     </div>
 
     <!-- Education Group -->
     <div class="form-group">
       <label for="select-education">
-        <span>2. Education of Head of Family</span>
+        <span data-i18n="edu_label">2. Education of Head of Family</span>
       </label>
-      <span class="helper-text">Highest educational qualification completed by the family head:</span>
+      <span class="helper-text" data-i18n="edu_help">Highest educational qualification completed by the family head:</span>
       <select id="select-education">
-        <option value="">-- Select Educational Attainment --</option>
-        <option value="7">Postgraduate and above (Score: 7)</option>
-        <option value="6">Graduate (Score: 6)</option>
-        <option value="5">Higher secondary (Score: 5)</option>
-        <option value="4">Middle school (Score: 4)</option>
-        <option value="3">Primary school (Score: 3)</option>
-        <option value="1">Illiterate (Score: 1)</option>
+        <option value="" data-i18n="edu_opt_default">-- Select Educational Attainment --</option>
+        <option value="7" data-i18n="edu_opt_7">Postgraduate and above (Score: 7)</option>
+        <option value="6" data-i18n="edu_opt_6">Graduate (Score: 6)</option>
+        <option value="5" data-i18n="edu_opt_5">Higher secondary (Score: 5)</option>
+        <option value="4" data-i18n="edu_opt_4">Middle school (Score: 4)</option>
+        <option value="3" data-i18n="edu_opt_3">Primary school (Score: 3)</option>
+        <option value="1" data-i18n="edu_opt_1">Illiterate (Score: 1)</option>
       </select>
     </div>
 
     <!-- Occupation Group -->
     <div class="form-group">
       <label for="select-occupation">
-        <span>3. Occupation of Head of Family</span>
+        <span data-i18n="occ_label">3. Occupation of Head of Family</span>
       </label>
-      <span class="helper-text">Primary occupation category of the family head:</span>
+      <span class="helper-text" data-i18n="occ_help">Primary occupation category of the family head:</span>
       <select id="select-occupation">
-        <option value="">-- Select Occupational Category --</option>
-        <option value="10">Legislators, senior officials, managers (Score: 10)</option>
-        <option value="9">Professionals (Score: 9)</option>
-        <option value="8">Technicians / associate professionals (Score: 8)</option>
-        <option value="7">Clerk (Score: 7)</option>
-        <option value="6">Skilled worker, shop and market sales workers (Score: 6)</option>
-        <option value="5">Skilled agricultural and fishery workers (Score: 5)</option>
-        <option value="4">Craft and related trade workers (Score: 4)</option>
-        <option value="3">Plant and machine operators and assemblers (Score: 3)</option>
-        <option value="2">Elementary occupation (Score: 2)</option>
-        <option value="1">Unemployed (Score: 1)</option>
+        <option value="" data-i18n="occ_opt_default">-- Select Occupational Category --</option>
+        <option value="10" data-i18n="occ_opt_10">Legislators, senior officials, managers (Score: 10)</option>
+        <option value="9" data-i18n="occ_opt_9">Professionals (Score: 9)</option>
+        <option value="8" data-i18n="occ_opt_8">Technicians / associate professionals (Score: 8)</option>
+        <option value="7" data-i18n="occ_opt_7">Clerk (Score: 7)</option>
+        <option value="6" data-i18n="occ_opt_6">Skilled worker, shop and market sales workers (Score: 6)</option>
+        <option value="5" data-i18n="occ_opt_5">Skilled agricultural and fishery workers (Score: 5)</option>
+        <option value="4" data-i18n="occ_opt_4">Craft and related trade workers (Score: 4)</option>
+        <option value="3" data-i18n="occ_opt_3">Plant and machine operators and assemblers (Score: 3)</option>
+        <option value="2" data-i18n="occ_opt_2">Elementary occupation (Score: 2)</option>
+        <option value="1" data-i18n="occ_opt_1">Unemployed (Score: 1)</option>
       </select>
     </div>
 
-    <button type="button" class="btn-calc" onclick="calculateKuppuswamy()">Calculate Socioeconomic Status</button>
+    <button type="button" class="btn-calc" onclick="calculateKuppuswamy()" data-i18n="calc_btn">Calculate Socioeconomic Status</button>
 
     <!-- Calculation Results Container -->
     <div class="result-container" id="result-box">
-      <span class="result-badge">Calculated Status</span>
+      <span class="result-badge" data-i18n="res_badge">Calculated Status</span>
       <div class="result-class" id="res-class">Upper Middle Class (II)</div>
       <div class="score-grid">
         <div class="score-item">
-          <span>Income Score</span>
+          <span data-i18n="res_inc_lbl">Income Score</span>
           <strong id="res-inc">-</strong>
         </div>
         <div class="score-item">
-          <span>Education Score</span>
+          <span data-i18n="res_edu_lbl">Education Score</span>
           <strong id="res-edu">-</strong>
         </div>
         <div class="score-item">
-          <span>Occupation Score</span>
+          <span data-i18n="res_occ_lbl">Occupation Score</span>
           <strong id="res-occ">-</strong>
         </div>
         <div class="score-item">
-          <span>Total Kuppuswamy Score</span>
+          <span data-i18n="res_tot_lbl">Total Kuppuswamy Score</span>
           <strong id="res-total">-</strong>
         </div>
       </div>
@@ -594,7 +760,7 @@
   </main>
 
   <!-- =========================================
-       ACADEMIC CITATIONS SECTION (EXACT DESIGN MATCH)
+       ACADEMIC CITATIONS SECTION
        ========================================= -->
   <section class="card">
     <div class="citations-header">
@@ -671,15 +837,69 @@
 
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>Open source under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a>. Free for research, medical, and community audits with proper attribution.</p>
-    <p style="margin-top: 4px;">Standardized against CPI-IW data compiled by Labour Bureau, Ministry of Labour &amp; Employment, Government of India.</p>
+  <!-- =========================================
+       SOFTWARE & DIGITAL TOOL ATTRIBUTION
+       ========================================= -->
+  <section class="attribution-card">
+    <div class="attr-header">
+      <div class="attr-title-group">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.67-3.13 8.96-7 10.15-3.87-1.19-7-5.48-7-10.15V6.3l7-3.12z"/>
+        </svg>
+        Software &amp; Digital Tool Attribution
+      </div>
+      <span class="attr-license-badge">MIT Open Source License</span>
+    </div>
+
+    <div class="attr-grid">
+      <div class="attr-box">
+        <div class="attr-box-label">Calculator Developer</div>
+        <div class="attr-box-value">Rachael Alphonso</div>
+      </div>
+
+      <div class="attr-box">
+        <div class="attr-box-label">Software Version</div>
+        <div class="attr-box-value">Version 2026.2</div>
+      </div>
+
+      <div class="attr-box">
+        <div class="attr-box-label">Permanent Identifier (Zenodo DOI)</div>
+        <div class="attr-box-value">
+          <a href="https://doi.org/10.5281/zenodo.24143455" target="_blank" rel="noopener">10.5281/zenodo.24143455</a>
+        </div>
+      </div>
+
+      <div class="attr-box">
+        <div class="attr-box-label">Data Architecture &amp; Licensing</div>
+        <div class="attr-box-value">100% Client-Side • MIT License</div>
+      </div>
+    </div>
+
+    <div class="attr-footer-row">
+      <span>Hosted &amp; archived under Zenodo Research Data Repository</span>
+      <a href="https://doi.org/10.5281/zenodo.24143455" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        Open Record on Zenodo
+      </a>
+    </div>
+  </section>
+
+  <!-- =========================================
+       DATA PRIVACY & SECURITY BANNER
+       ========================================= -->
+  <div class="privacy-banner">
+    <strong>Data Privacy &amp; Security: Client-Side Only.</strong> None of the data or responses selected in this calculator are stored, tracked, transmitted, or logged in any way. Calculations execute 100% locally in your browser.
+  </div>
+
+  <!-- Footer Meta -->
+  <footer class="footer-meta">
+    <p>Modified Kuppuswamy Socioeconomic Status Scale Calculator • Version 2026.2 • Created by <strong>Rachael Alphonso</strong></p>
+    <p>100% Client-Side Execution • Released under the MIT License • Free &amp; Open Access for Public Health &amp; Clinical Research</p>
   </footer>
 
 </div>
 
-<!-- Hidden BibTeX sources for clipboard copy (cleanly hidden, not displayed) -->
+<!-- Hidden BibTeX sources for clipboard copy -->
 <div style="display: none;" aria-hidden="true">
   <pre id="bib-1">@software{alphonso2026kuppuswamy,
   author    = {Alphonso, Rachael},
@@ -711,7 +931,314 @@
 </div>
 
 <script>
+  // =========================================================
+  // MULTI-LANGUAGE DICTIONARY (Expandable without touching HTML)
+  // =========================================================
+  const translations = {
+    en: {
+      hero_badge: "CPI-IW 2026 Revision",
+      main_title: "Modified Kuppuswamy Scale SES Calculator",
+      main_subtitle: "Automated Socioeconomic Status Scoring for Clinical & Epidemiological Studies (January 2026 CPI-IW = 148.6)",
+      form_heading: "Household Socioeconomic Assessment",
+      inc_num_label: "1. Monthly Family Income (in ₹)",
+      inc_num_help: "Enter exact monthly family income in INR (auto-mapped to 2026 inflation brackets):",
+      toggle_to_drop: "⇄ Select from 2026 income range dropdown instead",
+      inc_drop_label: "1. Monthly Family Income Bracket (2026 Update)",
+      inc_drop_help: "Choose the household income bracket matching January 2026 CPI-IW index:",
+      inc_opt_default: "-- Select Income Range --",
+      inc_opt_12: "≥ ₹66,007 (Score: 12)",
+      inc_opt_10: "₹33,004 – ₹66,006 (Score: 10)",
+      inc_opt_6: "₹24,753 – ₹33,003 (Score: 6)",
+      inc_opt_4: "₹16,502 – ₹24,752 (Score: 4)",
+      inc_opt_3: "₹9,901 – ₹16,501 (Score: 3)",
+      inc_opt_2: "₹3,301 – ₹9,900 (Score: 2)",
+      inc_opt_1: "≤ ₹3,300 (Score: 1)",
+      toggle_to_num: "⇄ Enter exact numeric amount in ₹ instead",
+      edu_label: "2. Education of Head of Family",
+      edu_help: "Highest educational qualification completed by the family head:",
+      edu_opt_default: "-- Select Educational Attainment --",
+      edu_opt_7: "Postgraduate and above (Score: 7)",
+      edu_opt_6: "Graduate (Score: 6)",
+      edu_opt_5: "Higher secondary (Score: 5)",
+      edu_opt_4: "Middle school (Score: 4)",
+      edu_opt_3: "Primary school (Score: 3)",
+      edu_opt_1: "Illiterate (Score: 1)",
+      occ_label: "3. Occupation of Head of Family",
+      occ_help: "Primary occupation category of the family head:",
+      occ_opt_default: "-- Select Occupational Category --",
+      occ_opt_10: "Legislators, senior officials, managers (Score: 10)",
+      occ_opt_9: "Professionals (Score: 9)",
+      occ_opt_8: "Technicians / associate professionals (Score: 8)",
+      occ_opt_7: "Clerk (Score: 7)",
+      occ_opt_6: "Skilled worker, shop and market sales workers (Score: 6)",
+      occ_opt_5: "Skilled agricultural and fishery workers (Score: 5)",
+      occ_opt_4: "Craft and related trade workers (Score: 4)",
+      occ_opt_3: "Plant and machine operators and assemblers (Score: 3)",
+      occ_opt_2: "Elementary occupation (Score: 2)",
+      occ_opt_1: "Unemployed (Score: 1)",
+      calc_btn: "Calculate Socioeconomic Status",
+      res_badge: "Calculated Status",
+      res_inc_lbl: "Income Score",
+      res_edu_lbl: "Education Score",
+      res_occ_lbl: "Occupation Score",
+      res_tot_lbl: "Total Kuppuswamy Score",
+      class_I: "Upper Class (I)",
+      class_II: "Upper Middle Class (II)",
+      class_III: "Lower Middle Class (III)",
+      class_IV: "Upper Lower Class (IV)",
+      class_V: "Lower Class (V)",
+      alert_missing: "Please provide values for all three fields: Income, Education, and Occupation."
+    },
+    hi: {
+      hero_badge: "CPI-IW 2026 संशोधन",
+      main_title: "संशोधित कुप्पुस्वामी सामाजिक-आर्थिक स्थिति (SES) कैलकुलेटर",
+      main_subtitle: "नैदानिक और महामारी विज्ञान अध्ययनों के लिए स्वचालित सामाजिक-आर्थिक स्कोरिंग (जनवरी 2026 CPI-IW = 148.6)",
+      form_heading: "पारिवारिक सामाजिक-आर्थिक मूल्यांकन",
+      inc_num_label: "1. मासिक पारिवारिक आय (₹ में)",
+      inc_num_help: "भारतीय रुपये (₹) में सटीक मासिक पारिवारिक आय दर्ज करें:",
+      toggle_to_drop: "⇄ इसके बजाय 2026 आय श्रेणी सूची में से चुनें",
+      inc_drop_label: "1. मासिक पारिवारिक आय वर्ग (2026 अद्यतन)",
+      inc_drop_help: "जनवरी 2026 CPI-IW सूचकांक के अनुसार आय वर्ग चुनें:",
+      inc_opt_default: "-- आय वर्ग चुनें --",
+      inc_opt_12: "≥ ₹66,007 (अंक: 12)",
+      inc_opt_10: "₹33,004 – ₹66,006 (अंक: 10)",
+      inc_opt_6: "₹24,753 – ₹33,003 (अंक: 6)",
+      inc_opt_4: "₹16,502 – ₹24,752 (अंक: 4)",
+      inc_opt_3: "₹9,901 – ₹16,501 (अंक: 3)",
+      inc_opt_2: "₹3,301 – ₹9,900 (अंक: 2)",
+      inc_opt_1: "≤ ₹3,300 (अंक: 1)",
+      toggle_to_num: "⇄ इसके बजाय ₹ में सटीक राशि दर्ज करें",
+      edu_label: "2. परिवार के मुखिया की शिक्षा",
+      edu_help: "परिवार के मुखिया द्वारा प्राप्त उच्चतम शैक्षणिक योग्यता:",
+      edu_opt_default: "-- शैक्षणिक योग्यता चुनें --",
+      edu_opt_7: "स्नातकोत्तर और उससे ऊपर (अंक: 7)",
+      edu_opt_6: "स्नातक (अंक: 6)",
+      edu_opt_5: "उच्च माध्यमिक / हायर सेकेंडरी (अंक: 5)",
+      edu_opt_4: "माध्यमिक विद्यालय / मिडिल स्कूल (अंक: 4)",
+      edu_opt_3: "प्राथमिक विद्यालय / प्राइमरी स्कूल (अंक: 3)",
+      edu_opt_1: "निरक्षर (अंक: 1)",
+      occ_label: "3. परिवार के मुखिया का व्यवसाय",
+      occ_help: "परिवार के मुखिया की प्राथमिक व्यवसाय श्रेणी:",
+      occ_opt_default: "-- व्यवसाय श्रेणी चुनें --",
+      occ_opt_10: "विधायक, वरिष्ठ अधिकारी, प्रबंधक (अंक: 10)",
+      occ_opt_9: "पेशेवर / प्रोफेशनल्स (अंक: 9)",
+      occ_opt_8: "तकनीशियन / सहयोगी पेशेवर (अंक: 8)",
+      occ_opt_7: "लिपिक / क्लर्क (अंक: 7)",
+      occ_opt_6: "कुशल श्रमिक, दुकान और बाजार बिक्री कर्मचारी (अंक: 6)",
+      occ_opt_5: "कुशल कृषि और मत्स्य पालन श्रमिक (अंक: 5)",
+      occ_opt_4: "शिल्प और संबंधित व्यापार श्रमिक (अंक: 4)",
+      occ_opt_3: "संयंत्र और मशीन ऑपरेटर तथा असेंबलर (अंक: 3)",
+      occ_opt_2: "प्राथमिक व्यवसाय / अकुशल श्रमिक (अंक: 2)",
+      occ_opt_1: "बेरोजगार (अंक: 1)",
+      calc_btn: "सामाजिक-आर्थिक स्थिति की गणना करें",
+      res_badge: "गणना की गई स्थिति",
+      res_inc_lbl: "आय अंक",
+      res_edu_lbl: "शिक्षा अंक",
+      res_occ_lbl: "व्यवसाय अंक",
+      res_tot_lbl: "कुल कुप्पुस्वामी स्कोर",
+      class_I: "उच्च वर्ग (I)",
+      class_II: "उच्च मध्यम वर्ग (II)",
+      class_III: "निम्न मध्यम वर्ग (III)",
+      class_IV: "उच्च निम्न वर्ग (IV)",
+      class_V: "निम्न वर्ग (V)",
+      alert_missing: "कृपया तीनों क्षेत्रों के लिए मान प्रदान करें: आय, शिक्षा और व्यवसाय।"
+    },
+    ta: {
+      hero_badge: "CPI-IW 2026 திருத்தம்",
+      main_title: "மாற்றியமைக்கப்பட்ட குப்புசாமி சமூக-பொருளாதார நிலை (SES) கணிப்பான்",
+      main_subtitle: "மருத்துவ மற்றும் தொற்றுநோயியல் ஆய்வுகளுக்கான தானியங்கி சமூக-பொருளாதார மதிப்பீடு (ஜனவரி 2026 CPI-IW = 148.6)",
+      form_heading: "குடும்ப சமூக-பொருளாதார மதிப்பீடு",
+      inc_num_label: "1. மாதாந்திர குடும்ப வருமானம் (₹-இல்)",
+      inc_num_help: "மாதாந்திர குடும்ப வருமானத்தை ரூபாயில் (₹) உள்ளிடவும்:",
+      toggle_to_drop: "⇄ 2026 வருமான வரம்பு பட்டியலிலிருந்து தேர்ந்தெடுக்கவும்",
+      inc_drop_label: "1. மாதாந்திர குடும்ப வருமான வரம்பு (2026 புதுப்பிப்பு)",
+      inc_drop_help: "ஜனவரி 2026 CPI-IW குறியீட்டின்படி வருமான வரம்பைத் தேர்ந்தெடுக்கவும்:",
+      inc_opt_default: "-- வருமான வரம்பைத் தேர்ந்தெடுக்கவும் --",
+      inc_opt_12: "≥ ₹66,007 (மதிப்பெண்: 12)",
+      inc_opt_10: "₹33,004 – ₹66,006 (மதிப்பெண்: 10)",
+      inc_opt_6: "₹24,753 – ₹33,003 (மதிப்பெண்: 6)",
+      inc_opt_4: "₹16,502 – ₹24,752 (மதிப்பெண்: 4)",
+      inc_opt_3: "₹9,901 – ₹16,501 (மதிப்பெண்: 3)",
+      inc_opt_2: "₹3,301 – ₹9,900 (மதிப்பெண்: 2)",
+      inc_opt_1: "≤ ₹3,300 (மதிப்பெண்: 1)",
+      toggle_to_num: "⇄ சரியான வருமானத் தொகையை ₹-இல் உள்ளிடவும்",
+      edu_label: "2. குடும்பத் தலைவரின் கல்வித் தகுதி",
+      edu_help: "குடும்பத் தலைவர் பெற்ற உயர்ந்தபட்ச கல்வித் தகுதி:",
+      edu_opt_default: "-- கல்வித் தகுதியைத் தேர்ந்தெடுக்கவும் --",
+      edu_opt_7: "முதுகலை மற்றும் அதற்கு மேல் (மதிப்பெண்: 7)",
+      edu_opt_6: "பட்டதாரி (மதிப்பெண்: 6)",
+      edu_opt_5: "மேல்நிலைப் பள்ளி (மதிப்பெண்: 5)",
+      edu_opt_4: "நடுநிலைப் பள்ளி (மதிப்பெண்: 4)",
+      edu_opt_3: "ஆரம்பப் பள்ளி (மதிப்பெண்: 3)",
+      edu_opt_1: "எழுத்தறிவற்றவர் (மதிப்பெண்: 1)",
+      occ_label: "3. குடும்பத் தலைவரின் தொழில்",
+      occ_help: "குடும்பத் தலைவரின் முதன்மைத் தொழில் வகை:",
+      occ_opt_default: "-- தொழில் வகையைத் தேர்ந்தெடுக்கவும் --",
+      occ_opt_10: "சட்டமன்ற உறுப்பினர்கள், மூத்த அதிகாரிகள், மேலாளர்கள் (மதிப்பெண்: 10)",
+      occ_opt_9: "தொழில் வல்லுநர்கள் (மதிப்பெண்: 9)",
+      occ_opt_8: "தொழில்நுட்ப வல்லுநர்கள் / இணை வல்லுநர்கள் (மதிப்பெண்: 8)",
+      occ_opt_7: "எழுத்தர் (மதிப்பெண்: 7)",
+      occ_opt_6: "திறன்மிகு தொழிலாளர், கடை மற்றும் சந்தை விற்பனையாளர்கள் (மதிப்பெண்: 6)",
+      occ_opt_5: "திறன்மிகு விவசாய மற்றும் மீன்வளத் தொழிலாளர்கள் (மதிப்பெண்: 5)",
+      occ_opt_4: "கைவினை மற்றும் தொடர்புடைய வர்த்தகத் தொழிலாளர்கள் (மதிப்பெண்: 4)",
+      occ_opt_3: "ஆலை மற்றும் இயந்திர இயக்குபவர்கள் (மதிப்பெண்: 3)",
+      occ_opt_2: "அடிப்படைத் தொழில் / சாதாரணத் தொழிலாளர் (மதிப்பெண்: 2)",
+      occ_opt_1: "வேலையில்லாதவர் (மதிப்பெண்: 1)",
+      calc_btn: "சமூக-பொருளாதார நிலையைக் கணக்கிடுங்கள்",
+      res_badge: "கணக்கிடப்பட்ட நிலை",
+      res_inc_lbl: "வருமான மதிப்பெண்",
+      res_edu_lbl: "கல்வி மதிப்பெண்",
+      res_occ_lbl: "தொழில் மதிப்பெண்",
+      res_tot_lbl: "மொத்த குப்புசாமி மதிப்பெண்",
+      class_I: "மேல் தட்டு (I)",
+      class_II: "மேல் நடுத்தர வர்க்கம் (II)",
+      class_III: "கீழ் நடுத்தர வர்க்கம் (III)",
+      class_IV: "மேல் கீழ் வர்க்கம் (IV)",
+      class_V: "கீழ் தட்டு (V)",
+      alert_missing: "வருமானம், கல்வி மற்றும் தொழில் ஆகிய மூன்று விவரங்களையும் உள்ளிடவும்."
+    },
+    mr: {
+      hero_badge: "CPI-IW 2026 सुधारणा",
+      main_title: "सुधारित कुप्पुस्वामी सामाजिक-आर्थिक स्तर (SES) गणक",
+      main_subtitle: "वैद्यकीय आणि साथीच्या रोगांच्या अभ्यासासाठी स्वयंचलित सामाजिक-आर्थिक गुणांकन (जानेवारी 2026 CPI-IW = 148.6)",
+      form_heading: "कौटुंबिक सामाजिक-आर्थिक मूल्यांकन",
+      inc_num_label: "1. मासिक कौटुंबिक उत्पन्न (₹ मध्ये)",
+      inc_num_help: "भारतीय रुपयांमध्ये (₹) अचूक मासिक कौटुंबिक उत्पन्न प्रविष्ट करा:",
+      toggle_to_drop: "⇄ त्याऐवजी 2026 उत्पन्न श्रेणी यादीतून निवडा",
+      inc_drop_label: "1. मासिक कौटुंबिक उत्पन्न गट (2026 सुधारित)",
+      inc_drop_help: "जानेवारी 2026 CPI-IW निर्देशांकानुसार उत्पन्न गट निवडा:",
+      inc_opt_default: "-- उत्पन्न गट निवडा --",
+      inc_opt_12: "≥ ₹66,007 (गुण: 12)",
+      inc_opt_10: "₹33,004 – ₹66,006 (गुण: 10)",
+      inc_opt_6: "₹24,753 – ₹33,003 (गुण: 6)",
+      inc_opt_4: "₹16,502 – ₹24,752 (गुण: 4)",
+      inc_opt_3: "₹9,901 – ₹16,501 (गुण: 3)",
+      inc_opt_2: "₹3,301 – ₹9,900 (गुण: 2)",
+      inc_opt_1: "≤ ₹3,300 (गुण: 1)",
+      toggle_to_num: "⇄ त्याऐवजी ₹ मध्ये अचूक रक्कम प्रविष्ट करा",
+      edu_label: "2. कुटुंब प्रमुखाचे शिक्षण",
+      edu_help: "कुटुंब प्रमुखाने पूर्ण केलेली सर्वोच्च शैक्षणिक पात्रता:",
+      edu_opt_default: "-- शैक्षणिक पात्रता निवडा --",
+      edu_opt_7: "पदव्युत्तर आणि त्याहून अधिक (गुण: 7)",
+      edu_opt_6: "पदवीधर (गुण: 6)",
+      edu_opt_5: "उच्च माध्यमिक (गुण: 5)",
+      edu_opt_4: "माध्यमिक शाळा (गुण: 4)",
+      edu_opt_3: "प्राथमिक शाळा (गुण: 3)",
+      edu_opt_1: "निरक्षर (गुण: 1)",
+      occ_label: "3. कुटुंब प्रमुखाचा व्यवसाय",
+      occ_help: "कुटुंब प्रमुखाची प्राथमिक व्यवसाय श्रेणी:",
+      occ_opt_default: "-- व्यवसाय श्रेणी निवडा --",
+      occ_opt_10: "कायदेमंडळ सदस्य, वरिष्ठ अधिकारी, व्यवस्थापक (गुण: 10)",
+      occ_opt_9: "व्यावसायिक / प्रोफेशनल्स (गुण: 9)",
+      occ_opt_8: "तंत्रज्ञ / सहयोगी व्यावसायिक (गुण: 8)",
+      occ_opt_7: "लिपिक / कारकून (गुण: 7)",
+      occ_opt_6: "कुशल कामगार, दुकान आणि बाजार विक्री कामगार (गुण: 6)",
+      occ_opt_5: "कुशल कृषी आणि मत्स्यव्यवसाय कामगार (गुण: 5)",
+      occ_opt_4: "हस्तकला आणि संबंधित व्यापार कामगार (गुण: 4)",
+      occ_opt_3: "यंत्रसामग्री ऑपरेटर आणि असेंबलर (गुण: 3)",
+      occ_opt_2: "प्राथमिक व्यवसाय / अकुशल कामगार (गुण: 2)",
+      occ_opt_1: "बेरोजगार (गुण: 1)",
+      calc_btn: "सामाजिक-आर्थिक स्तर मोजा",
+      res_badge: "गणना केलेला स्तर",
+      res_inc_lbl: "उत्पन्न गुण",
+      res_edu_lbl: "शिक्षण गुण",
+      res_occ_lbl: "व्यवसाय गुण",
+      res_tot_lbl: "एकूण कुप्पुस्वामी गुण",
+      class_I: "उच्च वर्ग (I)",
+      class_II: "उच्च मध्यम वर्ग (II)",
+      class_III: "कनिष्ठ मध्यम वर्ग (III)",
+      class_IV: "उच्च कनिष्ठ वर्ग (IV)",
+      class_V: "कनिष्ठ वर्ग (V)",
+      alert_missing: "कृपया उत्पन्न, शिक्षण आणि व्यवसाय या तिन्ही क्षेत्रांसाठी माहिती द्या."
+    },
+    bn: {
+      hero_badge: "CPI-IW 2026 সংশোধন",
+      main_title: "সংশোধিত কুপ্পুস্বামী আর্থ-সামাজিক অবস্থা (SES) ক্যালকুলেটর",
+      main_subtitle: "ক্লিনিক্যাল এবং মহামারী সংক্রান্ত গবেষণার জন্য স্বয়ংক্রিয় আর্থ-সামাজিক স্কোরিং (জানুয়ারি 2026 CPI-IW = 148.6)",
+      form_heading: "পারিবারিক আর্থ-সামাজিক মূল্যায়ন",
+      inc_num_label: "1. মাসিক পারিবারিক আয় (₹-এ)",
+      inc_num_help: "ভারতীয় রুপিতে (₹) সঠিক মাসিক পারিবারিক আয় লিখুন:",
+      toggle_to_drop: "⇄ পরিবর্তে 2026 আয়ের সীমা তালিকা থেকে নির্বাচন করুন",
+      inc_drop_label: "1. মাসিক পারিবারিক আয়ের স্তর (2026 আপডেট)",
+      inc_drop_help: "জানুয়ারি 2026 CPI-IW সূচক অনুযায়ী আয়ের স্তর নির্বাচন করুন:",
+      inc_opt_default: "-- আয়ের স্তর নির্বাচন করুন --",
+      inc_opt_12: "≥ ₹66,007 (স্কোর: 12)",
+      inc_opt_10: "₹33,004 – ₹66,006 (স্কোর: 10)",
+      inc_opt_6: "₹24,753 – ₹33,003 (স্কোর: 6)",
+      inc_opt_4: "₹16,502 – ₹24,752 (স্কোর: 4)",
+      inc_opt_3: "₹9,901 – ₹16,501 (স্কোর: 3)",
+      inc_opt_2: "₹3,301 – ₹9,900 (স্কোর: 2)",
+      inc_opt_1: "≤ ₹3,300 (স্কোর: 1)",
+      toggle_to_num: "⇄ পরিবর্তে ₹-এ সঠিক পরিমাণ লিখুন",
+      edu_label: "2. পরিবার প্রধানের শিক্ষাগত যোগ্যতা",
+      edu_help: "পরিবার প্রধানের অর্জিত সর্বোচ্চ শিক্ষাগত যোগ্যতা:",
+      edu_opt_default: "-- শিক্ষাগত যোগ্যতা নির্বাচন করুন --",
+      edu_opt_7: "স্নাতকোত্তর এবং তদূর্ধ্ব (স্কোর: 7)",
+      edu_opt_6: "স্নাতক (স্কোর: 6)",
+      edu_opt_5: "উচ্চ মাধ্যমিক (স্কোর: 5)",
+      edu_opt_4: "মাধ্যমিক বিদ্যালয় (স্কোর: 4)",
+      edu_opt_3: "প্রাথমিক বিদ্যালয় (স্কোর: 3)",
+      edu_opt_1: "নিরক্ষর (স্কোর: 1)",
+      occ_label: "3. পরিবার প্রধানের পেশা",
+      occ_help: "পরিবার প্রধানের প্রাথমিক পেশার বিভাগ:",
+      occ_opt_default: "-- পেশার বিভাগ নির্বাচন করুন --",
+      occ_opt_10: "আইনপ্রণেতা, ঊর্ধ্বতন কর্মকর্তা, ব্যবস্থাপক (স্কোর: 10)",
+      occ_opt_9: "পেশাজীবী / প্রফেশনালস (স্কোর: 9)",
+      occ_opt_8: "প্রযুক্তিবিদ / সহযোগী পেশাজীবী (স্কোর: 8)",
+      occ_opt_7: "কেরানি / ক্লার্ক (স্কোর: 7)",
+      occ_opt_6: "দক্ষ কর্মী, দোকান ও বাজার বিক্রয় কর্মী (স্কোর: 6)",
+      occ_opt_5: "দক্ষ কৃষি ও মৎস্য কর্মী (স্কোর: 5)",
+      occ_opt_4: "কারুশিল্প ও সংশ্লিষ্ট বাণিজ্য কর্মী (স্কোর: 4)",
+      occ_opt_3: "প্ল্যান্ট ও মেশিন অপারেটর এবং অ্যাসেম্বলার (স্কোর: 3)",
+      occ_opt_2: "প্রাথমিক পেশা / অদক্ষ শ্রমিক (স্কোর: 2)",
+      occ_opt_1: "বেকার (স্কোর: 1)",
+      calc_btn: "আর্থ-সামাজিক অবস্থা গণনা করুন",
+      res_badge: "গণনাকৃত অবস্থা",
+      res_inc_lbl: "আয় স্কোর",
+      res_edu_lbl: "শিক্ষা স্কোর",
+      res_occ_lbl: "পেশা স্কোর",
+      res_tot_lbl: "মোট কুপ্পুস্বামী স্কোর",
+      class_I: "উচ্চবিত্ত (I)",
+      class_II: "উচ্চ মধ্যবিত্ত (II)",
+      class_III: "নিম্ন মধ্যবিত্ত (III)",
+      class_IV: "উচ্চ নিম্নবিত্ত (IV)",
+      class_V: "নিম্নবিত্ত (V)",
+      alert_missing: "অনুগ্রহ করে আয়, শিক্ষা এবং পেশা—এই তিনটি ক্ষেত্রের তথ্য প্রদান করুন।"
+    }
+  };
+
+  let currentLang = 'en';
+  let lastClassKey = null;
   let isDropdownMode = false;
+
+  function setLanguage(lang) {
+    if (!translations[lang]) return;
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+
+    // Update displayed SES class if result box is already open
+    if (lastClassKey && translations[lang][lastClassKey]) {
+      document.getElementById('res-class').textContent = translations[lang][lastClassKey];
+    }
+  }
+
+  // Support optional URL query parameter ?lang=hi or ?lang=ta
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    if (langParam && translations[langParam]) {
+      document.getElementById('lang-switcher').value = langParam;
+      setLanguage(langParam);
+    }
+  });
 
   function toggleIncomeMode(useDropdown) {
     isDropdownMode = useDropdown;
@@ -743,7 +1270,7 @@
     const occVal = document.getElementById('select-occupation').value;
 
     if (incScore === null || !eduVal || !occVal) {
-      alert("Please provide values for all three fields: Income, Education, and Occupation.");
+      alert(translations[currentLang].alert_missing);
       return;
     }
 
@@ -751,21 +1278,20 @@
     const occScore = parseInt(occVal, 10);
     const totalScore = incScore + eduScore + occScore;
 
-    let sesClass = "";
     if (totalScore >= 26) {
-      sesClass = "Upper Class (I)";
+      lastClassKey = "class_I";
     } else if (totalScore >= 16) {
-      sesClass = "Upper Middle Class (II)";
+      lastClassKey = "class_II";
     } else if (totalScore >= 11) {
-      sesClass = "Lower Middle Class (III)";
+      lastClassKey = "class_III";
     } else if (totalScore >= 5) {
-      sesClass = "Upper Lower Class (IV)";
+      lastClassKey = "class_IV";
     } else {
-      sesClass = "Lower Class (V)";
+      lastClassKey = "class_V";
     }
 
-    // Populate Results UI
-    document.getElementById('res-class').textContent = sesClass;
+    // Populate Results UI in current language
+    document.getElementById('res-class').textContent = translations[currentLang][lastClassKey];
     document.getElementById('res-inc').textContent = incScore;
     document.getElementById('res-edu').textContent = eduScore;
     document.getElementById('res-occ').textContent = occScore;
