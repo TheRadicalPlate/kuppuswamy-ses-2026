@@ -8,13 +8,13 @@ Thumbs.db
 *.swp
 *.swo
 
-# Node / Web Build Artifacts (if added in future)
+# Build Artifacts & Logs
 node_modules/
 dist/
 build/
 *.log
 
-# Python / Local Virtual Environments
+# Python / Environment Files
 __pycache__/
 *.py[cod]
 *$py.class

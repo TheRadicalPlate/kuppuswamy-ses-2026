@@ -49,9 +49,9 @@ To ensure epidemiological accuracy and backward compatibility with national heal
 ### 2. Education of Head of Family (Restored Canonical 7-Tier Kuppuswamy Rubric)
 | Educational Level | Score |
 | :--- | :---: |
-| Profession or Honours / Postgraduate and above | 7 |
+| Profession or honors | 7 |
 | Graduate | 6 |
-| Intermediate / Higher secondary / Post-high school diploma | 5 |
+| Intermediate or diploma | 5 |
 | High school certificate *(restored)* | 4 |
 | Middle school certificate *(realigned from 4)* | 3 |
 | Primary school certificate *(realigned from 3)* | 2 |
