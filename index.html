@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Modified Kuppuswamy Scale SES Calculator (2026 Update)</title>
-  <meta name="description" content="Online Socioeconomic Status (SES) Calculator implementing the 2026 Modified Kuppuswamy Scale update by Yadav, Mondal, and Debnath. Open-source under MIT License.">
+  <meta name="description" content="Online Socioeconomic Status (SES) Calculator implementing the 2026 Modified Kuppuswamy Scale update by Yadav, Mondal, and Debnath with restored canonical 7-tier education scoring. Open-source under MIT License.">
   <meta name="author" content="Rachael Alphonso">
 
-  <!-- GoatCounter Analytics -->
+  <!-- GoatCounter Analytics (URL & endpoint unchanged so your existing counter stays intact) -->
   <script data-goatcounter="https://kuppuswamy-ses-2026.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 
@@ -124,7 +124,7 @@
     header p {
       color: var(--text-muted);
       font-size: 1.05rem;
-      max-width: 700px;
+      max-width: 720px;
       margin: 0 auto;
     }
 
@@ -227,6 +227,24 @@
       cursor: pointer;
       display: inline-block;
       margin-top: 6px;
+    }
+
+    /* Methodological Restoration Notice Box */
+    .method-note-box {
+      background: #fffbeb;
+      border: 1.5px solid #fcd34d;
+      border-left: 4px solid #d97706;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+      color: #78350f;
+      line-height: 1.5;
+    }
+
+    .method-note-box strong {
+      color: #92400e;
+      font-weight: 700;
     }
 
     .btn-calc {
@@ -694,7 +712,7 @@
       <span class="toggle-link" onclick="toggleIncomeMode(false)" data-i18n="toggle_to_num">⇄ Enter exact numeric amount in ₹ instead</span>
     </div>
 
-    <!-- Education Group -->
+    <!-- Education Group (Restored Canonical 7-Tier Kuppuswamy Scoring) -->
     <div class="form-group">
       <label for="select-education">
         <span data-i18n="edu_label">2. Education of Head of Family</span>
@@ -702,13 +720,20 @@
       <span class="helper-text" data-i18n="edu_help">Highest educational qualification completed by the family head:</span>
       <select id="select-education">
         <option value="" data-i18n="edu_opt_default">-- Select Educational Attainment --</option>
-        <option value="7" data-i18n="edu_opt_7">Postgraduate and above (Score: 7)</option>
+        <option value="7" data-i18n="edu_opt_7">Profession or Honours / Postgraduate and above (Score: 7)</option>
         <option value="6" data-i18n="edu_opt_6">Graduate (Score: 6)</option>
-        <option value="5" data-i18n="edu_opt_5">Higher secondary (Score: 5)</option>
-        <option value="4" data-i18n="edu_opt_4">Middle school (Score: 4)</option>
-        <option value="3" data-i18n="edu_opt_3">Primary school (Score: 3)</option>
+        <option value="5" data-i18n="edu_opt_5">Intermediate / Higher secondary / Post-high school diploma (Score: 5)</option>
+        <option value="4" data-i18n="edu_opt_4">High school certificate (Score: 4)</option>
+        <option value="3" data-i18n="edu_opt_3">Middle school certificate (Score: 3)</option>
+        <option value="2" data-i18n="edu_opt_2">Primary school certificate (Score: 2)</option>
         <option value="1" data-i18n="edu_opt_1">Illiterate (Score: 1)</option>
       </select>
+
+      <!-- Methodological Restoration Disclosure -->
+      <div class="method-note-box">
+        <strong data-i18n="edu_note_title">Methodological Note (7-Tier Education Restoration):</strong>
+        <span data-i18n="edu_note_body">While monthly income brackets strictly follow Yadav et al. (April 2026), this calculator restores the canonical 7-tier Kuppuswamy (1976) education scoring—reinstating "High school certificate" (4 points) and realigning Middle school (3) and Primary school (2)—which were erroneously omitted/shifted in Table 3 of the 2026 update paper.</span>
+      </div>
     </div>
 
     <!-- Occupation Group -->
@@ -859,7 +884,7 @@
 
       <div class="attr-box">
         <div class="attr-box-label">Software Version</div>
-        <div class="attr-box-value">Version 2026.2</div>
+        <div class="attr-box-value">Version 2026.3</div>
       </div>
 
       <div class="attr-box">
@@ -893,7 +918,7 @@
 
   <!-- Footer Meta -->
   <footer class="footer-meta">
-    <p>Modified Kuppuswamy Socioeconomic Status Scale Calculator • Version 2026.2 • Created by <strong>Rachael Alphonso</strong></p>
+    <p>Modified Kuppuswamy Socioeconomic Status Scale Calculator • Version 2026.3 • Created by <strong>Rachael Alphonso</strong></p>
     <p>100% Client-Side Execution • Released under the MIT License • Free &amp; Open Access for Public Health &amp; Clinical Research</p>
   </footer>
 
@@ -904,6 +929,7 @@
   <pre id="bib-1">@software{alphonso2026kuppuswamy,
   author    = {Alphonso, Rachael},
   title     = {Modified Kuppuswamy Scale for Socioeconomic Status (2026 Update)},
+  version   = {2026.3},
   year      = {2026},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.24143455},
@@ -932,7 +958,7 @@
 
 <script>
   // =========================================================
-  // MULTI-LANGUAGE DICTIONARY (Expandable without touching HTML)
+  // MULTI-LANGUAGE DICTIONARY (7-Tier Canonical Education Restored)
   // =========================================================
   const translations = {
     en: {
@@ -957,12 +983,15 @@
       edu_label: "2. Education of Head of Family",
       edu_help: "Highest educational qualification completed by the family head:",
       edu_opt_default: "-- Select Educational Attainment --",
-      edu_opt_7: "Postgraduate and above (Score: 7)",
+      edu_opt_7: "Profession or Honours / Postgraduate and above (Score: 7)",
       edu_opt_6: "Graduate (Score: 6)",
-      edu_opt_5: "Higher secondary (Score: 5)",
-      edu_opt_4: "Middle school (Score: 4)",
-      edu_opt_3: "Primary school (Score: 3)",
+      edu_opt_5: "Intermediate / Higher secondary / Post-high school diploma (Score: 5)",
+      edu_opt_4: "High school certificate (Score: 4)",
+      edu_opt_3: "Middle school certificate (Score: 3)",
+      edu_opt_2: "Primary school certificate (Score: 2)",
       edu_opt_1: "Illiterate (Score: 1)",
+      edu_note_title: "Methodological Note (7-Tier Education Restoration):",
+      edu_note_body: "While monthly income brackets strictly follow Yadav et al. (April 2026), this calculator restores the canonical 7-tier Kuppuswamy (1976) education scoring—reinstating 'High school certificate' (4 points) and realigning Middle school (3) and Primary school (2)—which were erroneously omitted/shifted in Table 3 of the 2026 update paper.",
       occ_label: "3. Occupation of Head of Family",
       occ_help: "Primary occupation category of the family head:",
       occ_opt_default: "-- Select Occupational Category --",
@@ -1011,12 +1040,15 @@
       edu_label: "2. परिवार के मुखिया की शिक्षा (Education of Head of Family)",
       edu_help: "परिवार के मुखिया द्वारा प्राप्त उच्चतम शैक्षणिक योग्यता (Highest educational qualification completed):",
       edu_opt_default: "-- शैक्षणिक योग्यता चुनें (Select Educational Attainment) --",
-      edu_opt_7: "स्नातकोत्तर और उससे ऊपर (Postgraduate and above — अंक: 7)",
+      edu_opt_7: "व्यावसायिक / ऑनर्स या स्नातकोत्तर (Profession or Honours / Postgraduate and above — अंक: 7)",
       edu_opt_6: "स्नातक (Graduate — अंक: 6)",
-      edu_opt_5: "उच्च माध्यमिक (Higher secondary — अंक: 5)",
-      edu_opt_4: "माध्यमिक विद्यालय (Middle school — अंक: 4)",
-      edu_opt_3: "प्राथमिक विद्यालय (Primary school — अंक: 3)",
+      edu_opt_5: "इंटरमीडिएट / उच्च माध्यमिक / डिप्लोमा (Intermediate / Higher secondary / Diploma — अंक: 5)",
+      edu_opt_4: "हाई स्कूल प्रमाणपत्र (High school certificate — अंक: 4)",
+      edu_opt_3: "माध्यमिक विद्यालय प्रमाणपत्र (Middle school certificate — अंक: 3)",
+      edu_opt_2: "प्राथमिक विद्यालय प्रमाणपत्र (Primary school certificate — अंक: 2)",
       edu_opt_1: "निरक्षर (Illiterate — अंक: 1)",
+      edu_note_title: "पद्धतिगत नोट (7-स्तरीय शिक्षा पुनर्स्थापना / 7-Tier Education Restoration):",
+      edu_note_body: "मासिक आय वर्ग यादव एवं अन्य (अप्रैल 2026) के अनुसार हैं, लेकिन यह कैलकुलेटर मानक 7-स्तरीय कुप्पुस्वामी (1976) शिक्षा स्कोरिंग को पुनर्स्थापित करता है—जिसमें 'हाई स्कूल प्रमाणपत्र' (4 अंक) को पुनः जोड़ा गया है तथा मिडिल स्कूल (3) और प्राइमरी स्कूल (2) को सही किया गया है (जो 2026 के शोध पत्र की तालिका 3 में त्रुटिवश छूट गए थे)।",
       occ_label: "3. परिवार के मुखिया का व्यवसाय (Occupation of Head of Family)",
       occ_help: "परिवार के मुखिया की प्राथमिक व्यवसाय श्रेणी (Primary occupation category):",
       occ_opt_default: "-- व्यवसाय श्रेणी चुनें (Select Occupational Category) --",
@@ -1065,12 +1097,15 @@
       edu_label: "2. குடும்பத் தலைவரின் கல்வித் தகுதி (Education of Head of Family)",
       edu_help: "குடும்பத் தலைவர் பெற்ற உயர்ந்தபட்ச கல்வித் தகுதி (Highest educational qualification completed):",
       edu_opt_default: "-- கல்வித் தகுதியைத் தேர்ந்தெடுக்கவும் (Select Educational Attainment) --",
-      edu_opt_7: "முதுகலை மற்றும் அதற்கு மேல் (Postgraduate and above — மதிப்பெண்: 7)",
+      edu_opt_7: "தொழில்முறை / ஹானர்ஸ் / முதுகலை (Profession or Honours / Postgraduate and above — மதிப்பெண்: 7)",
       edu_opt_6: "பட்டதாரி (Graduate — மதிப்பெண்: 6)",
-      edu_opt_5: "மேல்நிலைப் பள்ளி (Higher secondary — மதிப்பெண்: 5)",
-      edu_opt_4: "நடுநிலைப் பள்ளி (Middle school — மதிப்பெண்: 4)",
-      edu_opt_3: "ஆரம்பப் பள்ளி (Primary school — மதிப்பெண்: 3)",
+      edu_opt_5: "இன்டர்மீடியட் / மேல்நிலை / டிப்ளமோ (Intermediate / Higher secondary / Diploma — மதிப்பெண்: 5)",
+      edu_opt_4: "உயர்நிலைப் பள்ளி சான்றிதழ் (High school certificate — மதிப்பெண்: 4)",
+      edu_opt_3: "நடுநிலைப் பள்ளி சான்றிதழ் (Middle school certificate — மதிப்பெண்: 3)",
+      edu_opt_2: "ஆரம்பப் பள்ளி சான்றிதழ் (Primary school certificate — மதிப்பெண்: 2)",
       edu_opt_1: "எழுத்தறிவற்றவர் (Illiterate — மதிப்பெண்: 1)",
+      edu_note_title: "வழிமுறைக் குறிப்பு (7-அடுக்கு கல்வி மீட்டமைப்பு / 7-Tier Education Restoration):",
+      edu_note_body: "மாதாந்திர வருமான வரம்புகள் யாதவ் மற்றும் பலர் (ஏப்ரல் 2026) ஆய்வின்படி அமைந்துள்ளன; இருப்பினும், 2026 ஆய்வுக் கட்டுரையின் அட்டவணை 3-இல் தவறுதலாக விடுபட்ட 'உயர்நிலைப் பள்ளி சான்றிதழ்' (4 மதிப்பெண்கள்) மீண்டும் சேர்க்கப்பட்டு, நடுநிலைப் பள்ளி (3) மற்றும் ஆரம்பப் பள்ளி (2) ஆகியவை நிலையான 7-அடுக்கு குப்புசாமி (1976) முறைப்படி சீரமைக்கப்பட்டுள்ளன.",
       occ_label: "3. குடும்பத் தலைவரின் தொழில் (Occupation of Head of Family)",
       occ_help: "குடும்பத் தலைவரின் முதன்மைத் தொழில் வகை (Primary occupation category):",
       occ_opt_default: "-- தொழில் வகையைத் தேர்ந்தெடுக்கவும் (Select Occupational Category) --",
@@ -1119,12 +1154,15 @@
       edu_label: "2. कुटुंब प्रमुखाचे शिक्षण (Education of Head of Family)",
       edu_help: "कुटुंब प्रमुखाने पूर्ण केलेली सर्वोच्च शैक्षणिक पात्रता (Highest educational qualification completed):",
       edu_opt_default: "-- शैक्षणिक पात्रता निवडा (Select Educational Attainment) --",
-      edu_opt_7: "पदव्युत्तर आणि त्याहून अधिक (Postgraduate and above — गुण: 7)",
+      edu_opt_7: "व्यावसायिक / ऑनर्स / पदव्युत्तर (Profession or Honours / Postgraduate and above — गुण: 7)",
       edu_opt_6: "पदवीधर (Graduate — गुण: 6)",
-      edu_opt_5: "उच्च माध्यमिक (Higher secondary — गुण: 5)",
-      edu_opt_4: "माध्यमिक शाळा (Middle school — गुण: 4)",
-      edu_opt_3: "प्राथमिक शाळा (Primary school — गुण: 3)",
+      edu_opt_5: "इंटरमीडिएट / उच्च माध्यमिक / डिप्लोमा (Intermediate / Higher secondary / Diploma — गुण: 5)",
+      edu_opt_4: "हायस्कूल प्रमाणपत्र (High school certificate — गुण: 4)",
+      edu_opt_3: "माध्यमिक शाळा प्रमाणपत्र (Middle school certificate — गुण: 3)",
+      edu_opt_2: "प्राथमिक शाळा प्रमाणपत्र (Primary school certificate — गुण: 2)",
       edu_opt_1: "निरक्षर (Illiterate — गुण: 1)",
+      edu_note_title: "पद्धतशीर टीप (7-स्तरीय शिक्षण पुनर्स्थापना / 7-Tier Education Restoration):",
+      edu_note_body: "मासिक उत्पन्न गट यादव आणि इतर (एप्रिल 2026) नुसार आहेत, परंतु या गणकामध्ये मूळ 7-स्तरीय कुप्पुस्वामी (1976) शिक्षण गुणांकन पुनर्स्थापित केले आहे—ज्यामध्ये 'हायस्कूल प्रमाणपत्र' (4 गुण) पुन्हा समाविष्ट केले असून माध्यमिक शाळा (3) आणि प्राथमिक शाळा (2) अचूक केले आहेत (जे 2026 च्या शोधनिबंधातील तक्ता 3 मध्ये चुकून वगळले गेले होते).",
       occ_label: "3. कुटुंब प्रमुखाचा व्यवसाय (Occupation of Head of Family)",
       occ_help: "कुटुंब प्रमुखाची प्राथमिक व्यवसाय श्रेणी (Primary occupation category):",
       occ_opt_default: "-- व्यवसाय श्रेणी निवडा (Select Occupational Category) --",
@@ -1173,12 +1211,15 @@
       edu_label: "2. পরিবার প্রধানের শিক্ষাগত যোগ্যতা (Education of Head of Family)",
       edu_help: "পরিবার প্রধানের অর্জিত সর্বোচ্চ শিক্ষাগত যোগ্যতা (Highest educational qualification completed):",
       edu_opt_default: "-- শিক্ষাগত যোগ্যতা নির্বাচন করুন (Select Educational Attainment) --",
-      edu_opt_7: "স্নাতকোত্তর এবং তদূর্ধ্ব (Postgraduate and above — স্কোর: 7)",
+      edu_opt_7: "প্রফেশন বা অনার্স / স্নাতকোত্তর (Profession or Honours / Postgraduate and above — স্কোর: 7)",
       edu_opt_6: "স্নাতক (Graduate — স্কোর: 6)",
-      edu_opt_5: "উচ্চ মাধ্যমিক (Higher secondary — স্কোর: 5)",
-      edu_opt_4: "মাধ্যমিক বিদ্যালয় (Middle school — স্কোর: 4)",
-      edu_opt_3: "প্রাথমিক বিদ্যালয় (Primary school — স্কোর: 3)",
+      edu_opt_5: "ইন্টারমিডিয়েট / উচ্চ মাধ্যমিক / ডিপ্লোমা (Intermediate / Higher secondary / Diploma — স্কোর: 5)",
+      edu_opt_4: "হাই স্কুল সার্টিফিকেট (High school certificate — স্কোর: 4)",
+      edu_opt_3: "মাধ্যমিক বিদ্যালয় সার্টিফিকেট (Middle school certificate — স্কোর: 3)",
+      edu_opt_2: "প্রাথমিক বিদ্যালয় সার্টিফিকেট (Primary school certificate — স্কোর: 2)",
       edu_opt_1: "নিরক্ষর (Illiterate — স্কোর: 1)",
+      edu_note_title: "পদ্ধতিগত নোট (7-স্তরের শিক্ষা পুনঃস্থাপন / 7-Tier Education Restoration):",
+      edu_note_body: "মাসিক আয়ের স্তরগুলো যাদব ও অন্যান্য (এপ্রিল ২০২৬) অনুসরণ করে, তবে এই ক্যালকুলেটরে মূল ৭-স্তরের কুপ্পুস্বামী (১৯৭৬) শিক্ষা স্কোরিং পুনঃস্থাপন করা হয়েছে—যাতে 'হাই স্কুল সার্টিফিকেট' (৪ পয়েন্ট) পুনরায় যুক্ত করা হয়েছে এবং মিডল স্কুল (৩) ও প্রাইমারি স্কুল (২) ঠিক করা হয়েছে (যা ২০২৬ সালের গবেষণাপত্রের টেবিল ৩-এ ভুলবশত বাদ পড়েছিল)।",
       occ_label: "3. পরিবার প্রধানের পেশা (Occupation of Head of Family)",
       occ_help: "পরিবার প্রধানের প্রাথমিক পেশার বিভাগ (Primary occupation category):",
       occ_opt_default: "-- পেশার বিভাগ নির্বাচন করুন (Select Occupational Category) --",
@@ -1216,7 +1257,6 @@
     currentLang = lang;
     document.documentElement.lang = lang;
 
-    // Update all elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (translations[lang][key]) {
@@ -1224,13 +1264,11 @@
       }
     });
 
-    // Update displayed SES class if result box is already open
     if (lastClassKey && translations[lang][lastClassKey]) {
       document.getElementById('res-class').textContent = translations[lang][lastClassKey];
     }
   }
 
-  // Support optional URL query parameter ?lang=hi or ?lang=ta
   window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const langParam = urlParams.get('lang');
@@ -1290,7 +1328,6 @@
       lastClassKey = "class_V";
     }
 
-    // Populate Results UI in current language
     document.getElementById('res-class').textContent = translations[currentLang][lastClassKey];
     document.getElementById('res-inc').textContent = incScore;
     document.getElementById('res-edu').textContent = eduScore;
@@ -1298,7 +1335,6 @@
     document.getElementById('res-total').textContent = `${totalScore} / 29`;
     document.getElementById('result-box').style.display = 'block';
 
-    // GoatCounter Analytics: Count Custom Calculation Event
     if (window.goatcounter && window.goatcounter.count) {
       window.goatcounter.count({
         path: 'calculate-kuppuswamy-ses',
